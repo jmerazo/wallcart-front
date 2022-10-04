@@ -1,9 +1,12 @@
 <template>
     <section class="container">
+    <router-link id="btn-back-payments-panel" :to="{name: 'PaymentsPanel'}" class="btn" type="button">
+        <font-awesome-icon id="fai-log-update-password" :icon="['fas', 'chevron-left']"/>}
+    </router-link>       
   
       <form class="row">      
         <div id="btn-back">
-          <a title="Back" id="btn-back-users-create-top" href="" class="btn" type="button"><font-awesome-icon id="fai-log-update-password" :icon="['fas', 'chevron-left']"/></a>
+          <a title="Back" id="btn-back-users-create-top" href="/payments/panel" class="btn" type="button"><font-awesome-icon id="fai-log-update-password" :icon="['fas', 'chevron-left']"/></a>
           <a title="Panel administrator" id="btn-register-user-top" href="" class="btn" type="button"><font-awesome-icon :icon="['fas', 'columns']"/></a>       
         </div>
            
@@ -28,8 +31,7 @@
               <input v-on:keyup="searchDate()" v-model="date" type="text" class="form-control">
             </div>
 
-            <form action="">
-            <div class="row">
+            <div class="row" id="form-search-parameters">
                 <div class="col-3">
                     <font-awesome-icon id="fai-log" :icon="['fas', 'list-ol']"/><label class="form-label">Nit</label>
                     <input v-model="nits" type="text" class="form-control" placeholder="Write the nit">
@@ -48,7 +50,7 @@
                 <div class="col-3">
                     <a id="btn-search" type="submit" class="btn" @click="searchParameters">Search</a>
                 </div>
-            </div></form>
+            </div>
 
             <div class="col-12" id="form-search-list">
                   <table class="table table table-striped table-hover">
@@ -141,14 +143,14 @@
             });
         },
         async searchParameters() {
-            const search = JSON.stringify({
-                nit : this.nits,
-                date_init : this.date_init,
-                date_end : this.date_end
-            })
+            //const search = JSON.stringify({
+            //    nit : this.nits,
+            //    date_init : this.date_init,
+            //    date_end : this.date_end
+            //})
 
-            console.log('Data search: ', search);
-            await axios.get(`http://localhost:8844/api/payments/search`, search, {
+            //console.log('Data search: ', search);
+            await axios.get(`http://localhost:8844/api/payments/search/${this.nits}/${this.date_init}/${this.date_end}`, {
             headers: {
                 "Content-Type": "application/json",
                 "Access-Control-Allow-Origin": "*"
@@ -176,15 +178,9 @@
     justify-items: center;
     justify-content: center;
   }
-  
-  #btn-back-users-create-top {
-    margin-top: 10px;
-    margin-bottom: 10px;
-    align-content: left;
-    justify-content: left;
-    background-color: white;
-    color: white;
-    width: 30px;
+
+  #form-search-parameters{
+    margin-top: 15px;
   }
 
   #btn-search{
@@ -202,6 +198,16 @@
     color: white;
     margin-top: 15px;
   }
+
+  #btn-back-payments-panel {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  align-content: left;
+  justify-content: left;
+  background-color: white;
+  color: white;
+  width: 30px;
+}
   
   #form-register-user {
     padding: 20px;

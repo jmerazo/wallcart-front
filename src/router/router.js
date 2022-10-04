@@ -2,8 +2,9 @@ import { createRouter, createWebHistory } from 'vue-router';
 
 import Home from '@/views/Home.vue';
 import PanelAdmin from '@/views/Auth/Admin.vue';
-import PaymentsList from '@/views/Reports/Payments.vue';
-import PaymentsPanel from '@/views/Reports/PanelPayments.vue'
+import PaymentsList from '@/views/Payments/Payments.vue';
+import PaymentsPanel from '@/views/Payments/Panel.vue'
+import PaymentsReports from '@/views/Payments/Reports.vue'
 
 const routes = [
     {
@@ -34,6 +35,14 @@ const routes = [
         path: '/payments/panel',
         name: 'PaymentsPanel',
         component: PaymentsPanel,
+        meta: {
+            auth: false
+        }
+    },
+    {         
+        path: '/payments/reports',
+        name: 'PaymentsReports',
+        component: PaymentsReports,
         meta: {
             auth: false
         }

@@ -51,7 +51,10 @@ import {
     faToggleOn,
     faToggleOff,
     faBook,
-    faCreditCard
+    faCreditCard,
+    faFileExport,
+    faFileExcel,
+    faFileArrowUp
 } from '@fortawesome/free-solid-svg-icons'
 import { 
     faFacebook, 
@@ -107,7 +110,10 @@ library.add(
     faToggleOn,
     faToggleOff,
     faBook,
-    faCreditCard
+    faCreditCard,
+    faFileExport,
+    faFileExcel,
+    faFileArrowUp
 )
 
 createApp(App)
