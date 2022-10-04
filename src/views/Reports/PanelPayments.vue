@@ -19,35 +19,36 @@
             </div>
   
             <div class="col-4">
-              <font-awesome-icon id="fai-log" :icon="['fas', 'file-text']"/><label class="form-label">Sale</label>
+              <font-awesome-icon id="fai-log" :icon="['fas', 'credit-card']"/><label class="form-label">Sale</label>
               <input v-on:keyup="searchSale()" v-model="sale" type="text" class="form-control" placeholder="Write the number sale">
             </div>
   
             <div class="col-4">
-              <font-awesome-icon id="fai-log" :icon="['fas', 'file-text']"/><label class="form-label">Date</label>
+              <font-awesome-icon id="fai-log" :icon="['fas', 'calendar']"/><label class="form-label">Date</label>
               <input v-on:keyup="searchDate()" v-model="date" type="text" class="form-control">
             </div>
 
-            <div>
-                <div class="col-2">
+            <form action="">
+            <div class="row">
+                <div class="col-3">
                     <font-awesome-icon id="fai-log" :icon="['fas', 'list-ol']"/><label class="form-label">Nit</label>
                     <input v-model="nits" type="text" class="form-control" placeholder="Write the nit">
                 </div>
     
-                <div class="col-2">
-                    <font-awesome-icon id="fai-log" :icon="['fas', 'file-text']"/><label class="form-label">Sale</label>
+                <div class="col-3">
+                    <font-awesome-icon id="fai-log" :icon="['fas', 'credit-card']"/><label class="form-label">Sale</label>
                     <input v-model="date_init" type="text" class="form-control" placeholder="Write the number sale">
                 </div>
     
-                <div class="col-2">
-                    <font-awesome-icon id="fai-log" :icon="['fas', 'file-text']"/><label class="form-label">Date</label>
+                <div class="col-3">
+                    <font-awesome-icon id="fai-log" :icon="['fas', 'calendar']"/><label class="form-label">Date</label>
                     <input v-model="date_end" type="text" class="form-control">
                 </div>
 
-                <div class="col-2">
+                <div class="col-3">
                     <a id="btn-search" type="submit" class="btn" @click="searchParameters">Search</a>
                 </div>
-            </div>
+            </div></form>
 
             <div class="col-12" id="form-search-list">
                   <table class="table table table-striped table-hover">
