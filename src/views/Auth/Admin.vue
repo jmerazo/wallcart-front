@@ -4,14 +4,14 @@
           <h2 id="panel-admin-title">Welcome</h2>
           <label></label>
 
-            <a class="btn" id="card-item-padmin" href="/users/list">
+            <a class="btn" id="card-item-padmin" href="">
               <div class="card-body" id="card-body-item">
                 <font-awesome-icon id="fai-log" :icon="['fas', 'users']"/>
                 Users
               </div>
             </a>
 
-            <a class="btn" id="card-item-padmin" href="/areas/list">
+            <a class="btn" id="card-item-padmin" href="">
               <div class="card-body" id="card-body-item">
                 <font-awesome-icon id="fai-log" :icon="['fas', 'building']"/>
                 Areas
@@ -50,10 +50,10 @@ export default {
   name: "PanelAdmin",
   data(){
     return {
-      username:  this.$route.params.email,
+      email:  this.$route.params.email,
       names: "",
       last_names: "",
-      uid: localStorage.getItem('id')
+      //uid: localStorage.getItem('id')
     }    
   }, 
   //setup(){    
@@ -62,8 +62,8 @@ export default {
   //  return { state };
   //},
   mounted() {
-    this.userById();   
-    console.log("Localstorage user: ", localStorage.getItem('user_id')); 
+    //this.userById();   
+    //console.log("Localstorage user: ", localStorage.getItem('user_id')); 
   },
   computed: {
 

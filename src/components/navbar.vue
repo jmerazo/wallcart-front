@@ -39,9 +39,9 @@
                       <span class="caret"></span>
                     </button>
                     <ul class="dropdown-menu" role="menu" aria-labelledby="btncircle">
-                      <li v-show="uid"><h6 id="t-log"></h6></li>
+                      <li><h6 id="t-log"></h6></li>
                       <li class="divider"></li>
-                      <li v-show="uid"><a class="dropdown-item" type="button" @click="logOut"><font-awesome-icon id="fai-log" :icon="['fas', 'right-from-bracket']"/>Log out</a></li>
+                      <li><a class="dropdown-item" type="button"><font-awesome-icon id="fai-log" :icon="['fas', 'right-from-bracket']"/>Log out</a></li>
                     </ul>
                   </div>                                 
                 </li>          

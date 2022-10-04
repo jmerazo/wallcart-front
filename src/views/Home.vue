@@ -57,7 +57,7 @@ export default {
         const user = JSON.stringify({
               email: this.email,
               password: this.password
-      }) 
+        }) 
         await axios.post("http://localhost:8844/api-auth/user/auth", user, {
             headers: {
                 'Content-Type': 'application/json',
@@ -70,10 +70,13 @@ export default {
           this.status = response.data.status;
           this.un = response.data.email;
           localStorage.setItem('user_id', response.data.id);
-          localStorage.setItem('rol', response.data.rol_id);        
+          localStorage.setItem('rol', response.data.rol_id);
+          console.log("Rol: ", response.data.rol_id);
+          console.log("Status: ", response.data.status);
+          console.log("Email: ", response.data.email);        
 
           if(this.status == 1){
-            if(this.rol == 1 || this.rol == 2){
+            if(this.rol == 1){
               console.log("Login username: ", this.un);
               this.$router.push({
                 name: 'PanelAdmin',
