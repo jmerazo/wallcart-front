@@ -7,7 +7,7 @@
                <img src="@/assets/resources/cob.png"
                 width="90"
                 height="60"/>
-                WallCart
+                Xara
               </a>
             </div>
   
@@ -28,9 +28,17 @@
                 <li class="nav-item">
                   <a class="nav-item nav-link btn btn-light" href="/" id="txt-nav">Home</a>
                 </li>
+
+                <li class="nav-item">
+                  <a class="nav-item nav-link btn btn-light" href="#" id="txt-nav">Queries</a>
+                  <ul>
+                    <li><a href="">Search</a></li>
+                    <li><a href="">Parameters</a></li>
+                  </ul>
+                </li>
   
                 <li class="nav-item">
-                  <a class="nav-item nav-link btn btn-light" href="#" id="txt-nav">Passport</a>
+                  <a class="nav-item nav-link btn btn-light" href="#" id="txt-nav">Reports</a>
                 </li>
                 
                 <li class="nav-item">
@@ -67,8 +75,7 @@
   <style>
   .header {
     display: flex;
-    background-color: #ab0d2f;
-    border-bottom: 1px solid #ab0d2f;
+    border-bottom: 1px solid #acacac;
   }
   
   .navbar {
@@ -97,17 +104,16 @@
   }
   
   #txt-nav-log{
-    color: #54426b;
+    color: #000000;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-size: 1.8em;
     font-weight: bold;
   }
   
   #txt-nav {
-    color: #54426b;
+    color: #000000;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-size: 1.1em;
-    font-weight: bold;
   }
   
   .nav-start {
@@ -119,4 +125,79 @@
     align-content: right;
     justify-content: right;
   }
+
+/* menu */
+
+#menu ul {
+ list-style:none;
+ margin:0;
+ padding:0;
+}
+
+/* items del menu */
+
+#menu ul li {
+ background-color:#2e518b;
+}
+
+/* enlaces del menu */
+
+#menu ul a {
+ display:block;
+ color:#fff;
+ text-decoration:none;
+ font-weight:400;
+ font-size:15px;
+ padding:10px;
+ font-family:"HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+ text-transform:uppercase;
+ letter-spacing:1px;
+}
+
+/* items del menu */
+
+#menu ul li {
+ position:relative;
+ float:left;
+ margin:0;
+ padding:0;
+}
+
+/* efecto al pasar el ratón por los items del menu */
+
+#menu ul li:hover {
+ background:#5b78a7;
+}
+
+/* menu desplegable */
+
+#menu ul ul {
+ display:none;
+ position:absolute;
+ top:100%;
+ left:0;
+ background:#eee;
+ padding:0;
+}
+
+/* items del menu desplegable */
+
+#menu ul ul li {
+ float:none;
+ width:150px
+}
+
+/* enlaces de los items del menu desplegable */
+
+#menu ul ul a {
+ line-height:120%;
+ padding:10px 15px;
+}
+
+/* items del menu desplegable al pasar el ratón */
+
+#menu ul li:hover > ul {
+ display:block;
+}
+
   </style>
