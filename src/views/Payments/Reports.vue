@@ -211,8 +211,6 @@
   
   #form-register-user {
     padding: 20px;
-    border: 1px solid #54426b;
-    border-radius: 15px;
     margin-right: 50px;
     margin-bottom: 80px;
   }

@@ -1,7 +1,7 @@
 <template>
     <div class="footer">
 		<div id="footer-copyright" class="col-6">
-			<span id="footer-txt-queue-normal">©WallCart </span>
+			<span id="footer-txt-queue-normal">©Xara </span>
 			<span id="footer-txt-queue-oblique">- All rights reserved 2022</span>
 		</div>		
 		<div id="footer-social-networks" class="col-6">
@@ -21,7 +21,7 @@ export default {
 
 <style>
 .footer {
-	background: #ab0d2f; 
+	background: #11101d; 
 	position: fixed;
 	bottom: 0;
 	width: 100%;

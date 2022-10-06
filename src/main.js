@@ -6,6 +6,8 @@ import 'bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import SidebarMenuAkahonVue from 'vue-sidebar-menu-akahon';
+
 
 
 // Import icons fortawesome
@@ -120,4 +122,5 @@ createApp(App)
     .use(router)
     .use(Toaster)
     .component('font-awesome-icon', FontAwesomeIcon)
+    .component('vue-sidebar-menu-akahon', SidebarMenuAkahonVue)
     .mount('#app')
