@@ -25,7 +25,7 @@
                           <th>Observación</th>
                       </tr>
                     </thead>
-                    <tbody>
+                    <tbody>                      
                       <tr v-for="pay in payments" :value="pay.id" :key="pay.id">
                           <td>{{pay.nit}}</td>
                           <td>{{pay.factura}}</td>
@@ -37,8 +37,8 @@
                           <td>{{pay.observacion}}</td>
                       </tr>
                     </tbody>
-                  </table>                       
-              </div>          
+                  </table>                      
+              </div>        
           </div>                               
         </form> 
     </section>
@@ -49,6 +49,7 @@ import axios from "axios";
 
 export default {
   components: {
+
   },
   name: "PaymentsList",
   data() {

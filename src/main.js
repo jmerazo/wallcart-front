@@ -8,8 +8,6 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import SidebarMenuAkahonVue from 'vue-sidebar-menu-akahon';
 
-
-
 // Import icons fortawesome
 import { 
     faPenToSquare,
