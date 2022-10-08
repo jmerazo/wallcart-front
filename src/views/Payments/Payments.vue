@@ -26,7 +26,7 @@
                       </tr>
                     </thead>
                     <tbody>                      
-                      <tr v-for="pay in payments" :value="pay.id" :key="pay.id">
+                      <tr v-for="pay in dataPaginate" :value="pay.id" :key="pay.id">
                           <td>{{pay.nit}}</td>
                           <td>{{pay.factura}}</td>
                           <td>{{pay.num_cto}}</td>
@@ -37,8 +37,15 @@
                           <td>{{pay.observacion}}</td>
                       </tr>
                     </tbody>
-                  </table>                      
-              </div>        
+                  </table>                    
+              </div>
+              <nav aria-label="Page navigation example" id="pag-payments">
+                <ul class="pagination">
+                  <li class="page-item" @click="getPreviousPage"><a class="page-link" href="#">Previous</a></li>
+                  <li v-for="page in totalPages()" :key="page" @click="getDataPages(page)" class="page-item"><a class="page-link" href="#">{{page}}</a></li>
+                  <li class="page-item" @click="getNextPage"><a class="page-link" href="#">Next</a></li>
+                </ul>
+              </nav>        
           </div>                               
         </form> 
     </section>
@@ -49,20 +56,45 @@ import axios from "axios";
 
 export default {
   components: {
-
   },
   name: "PaymentsList",
   data() {
     return {
-      payments: []
+      payments: [],
+      itemsPerPage: 50,
+      dataPaginate: [],
+      actualPage: 1
     };    
   },
   mounted() {
     this.paymentsList();
+    this.getDataPages(1);
   },
   computed: {
   },
   methods: {
+    totalPages() {
+      return Math.ceil(this.payments.length / this.itemsPerPage)
+    },
+    getDataPages(numPage){
+      this.actualPage = numPage;
+      this.dataPaginate = [];
+      let ini = (numPage * this.itemsPerPage) - this.itemsPerPage;
+      let end = (numPage * this.itemsPerPage);
+      this.dataPaginate = this.payments.slice(ini, end);
+    },
+    getPreviousPage(){
+      if(this.actualPage > 1){
+        this.actualPage--;
+      }
+      this.getDataPages(this.actualPage)
+    },
+    getNextPage(){
+      if(this.actualPage < this.totalPages){
+        this.actualPage++;
+      }
+      this.getDataPages(this.actualPage)
+    },    
     async paymentsList(){
       await axios.get("http://localhost:8844/api/payments/all", {
         headers: {
@@ -96,6 +128,12 @@ export default {
   justify-items: center;
   justify-content: center;
 }
+
+#pag-payments{
+  margin-bottom: 30px;
+  margin-top: 20px;
+}
+
 
 #il-cfg{
   margin-left: 5px;

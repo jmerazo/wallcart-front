@@ -28,7 +28,7 @@
                     <table class="table table table-striped table-hover">
                         <thead class="thead-dark">
                         <tr id="tr-title">
-                            <th>Nit</th>
+                            <th class="text-red-500">Nit</th>
                             <th>Factura</th>
                             <th>Num. Cto</th>
                             <th>Fecha Pago</th>

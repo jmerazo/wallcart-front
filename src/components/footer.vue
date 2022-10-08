@@ -21,10 +21,12 @@ export default {
 
 <style>
 .footer {
-	background: #11101d; 
-	position: fixed;
-	bottom: 0;
+	background: hsl(245, 29%, 9%);
+	position: relative;
+	bottom: 0 !important;
+	bottom: -1px;
 	width: 100%;
+	clear: both;
 	height: 35px;
 	padding-top: 5px;
 	display: flex;

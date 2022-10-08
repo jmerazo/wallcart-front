@@ -1,21 +1,26 @@
 <template>
-  <section class="container">     
+  <section class="container" id="cont-login">     
     <div class="col-12" id="form-user-login">
-      <form @submit.prevent="userLogin" class="row"> 
-        <h2 id="login-title">Log in</h2>
+      <form @submit.prevent="userLogin" class="row">
+        <img src="@/assets/resources/log_xara.png" alt="" id="log-login"> 
+        <h2 id="login-title" class="font-bold text-2xl">Log in</h2>
         <label id="login-subtitle">Enter your credentials to login</label><br>
 
         <div class="row" id="row-form">
           <div>
-            <font-awesome-icon id="fai-log" :icon="['fas', 'user']"/>
-            <label class="form-label">Email</label>
-            <input v-model="email" type="text" class="form-control" placeholder="example@wallcart.ex" required>
+            <div id="icon-label-form">
+              <font-awesome-icon id="fai-login" :icon="['fas', 'user']"/>
+              <label class="form-label font-semibold">Email</label>
+            </div>
+            <input id="i-login" v-model="email" type="text" class="form-control" placeholder="example@wallcart.ex" required>
           </div>
 
           <div>
-            <font-awesome-icon id="fai-log" :icon="['fas', 'unlock']"/>
-            <label class="form-label">Password</label>
-            <input v-model="password" type="password" class="form-control" placeholder="wallcart123*" required>
+            <div id="icon-label-form">
+              <font-awesome-icon id="fai-login" :icon="['fas', 'unlock']"/>
+              <label class="form-label font-semibold">Password</label>
+            </div>
+            <input id="i-login" v-model="password" type="password" class="form-control" placeholder="wallcart123*" required>
           </div>
 
           <div class="col-4">
@@ -134,6 +139,29 @@ export default {
   justify-content: center;
 }
 
+#log-login{
+  margin-bottom: 20px;
+  margin-top: 20px;
+  width: 220px;
+  height: 200px;
+}
+
+#cont-login{
+  background-color: #b8abcc;
+}
+
+#fai-login{
+  margin-right: 5px;
+}
+
+#icon-label-form{
+  text-align: left;
+}
+
+#i-login{
+  text-align: center;
+}
+
 #row-form{
   margin-top: 20px;
 }
@@ -145,32 +173,17 @@ export default {
 #btn-user-login {
   margin-top: 20px;
   align-content: center;
-  background-color: #54426b;
+  background-color: #090218;
   color: white;
 }
 
 #form-user-login {
   padding-top: 10px;
-  border: 1px solid #54426b;
+  border: 3px solid #baaeca;
+  background-color: #e5e0f1;
   padding-bottom: 15px;
   border-radius: 15px;
   margin-right: 50px;
-  width: 350px;
-}
-
-#login-title {
-  display: flex;
-  text-align: center;
-  align-items: center;
-  justify-content: center;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-}
-
-#login-subtitle {
-  display: flex;
-  text-align: center;
-  align-items: center;
-  justify-content: center;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  width: 360px;
 }
 </style>
