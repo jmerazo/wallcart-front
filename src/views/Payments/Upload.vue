@@ -100,74 +100,66 @@
   };
   </script>
   
-  <style>
-  .container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding-top: 20px;
-    padding-bottom: 20px;
-  }
-  
-  .row {
-    align-items: center;
-    justify-items: center;
-    justify-content: center;
-  }
-
-  #form-search-parameters{
-    margin-top: 15px;
-  }
-
-  #btn-global{
-    background-color: #ab0d2f;
-    color: white;
-  }
-
-  #form-search-list{
-    width: 100%;
-    margin-top: 20px;
-  }
-
-  #fai-log{
-    margin-right: 10px;
-  }
-  
-  #btn-register-save {
-    background-color: #54426b;
-    color: white;
-    margin-top: 15px;
-  }
-
-  #btn-back-payments-panel {
-  margin-top: 10px;
-  margin-bottom: 10px;
-  align-content: left;
-  justify-content: left;
-  background-color: white;
-  color: white;
-  width: 30px;
+<style>
+.row {
+  align-items: center;
+  justify-items: center;
+  justify-content: center;
 }
-  
-  #form-register-user {
-    padding: 20px;
-    margin-right: 50px;
-    margin-bottom: 80px;
-  }
-  
-  #register-title {
-    display: flex;
-    text-align: center;
-    align-items: center;
-    justify-content: center;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  }
-  
-  #register-subtitle {
-    display: flex;
-    text-align: center;
-    align-items: center;
-    justify-content: center;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  }
-  </style>
+
+#form-search-parameters{
+  margin-top: 15px;
+}
+
+#btn-global{
+  background-color: #ab0d2f;
+  color: white;
+}
+
+#form-search-list{
+  width: 100%;
+  margin-top: 20px;
+}
+
+#fai-log{
+  margin-right: 10px;
+}
+
+#btn-register-save {
+  background-color: #54426b;
+  color: white;
+  margin-top: 15px;
+}
+
+#btn-back-payments-panel {
+margin-top: 10px;
+margin-bottom: 10px;
+align-content: left;
+justify-content: left;
+background-color: white;
+color: white;
+width: 30px;
+}
+
+#form-register-user {
+  padding: 20px;
+  margin-right: 50px;
+  margin-bottom: 80px;
+}
+
+#register-title {
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+#register-subtitle {
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+</style>

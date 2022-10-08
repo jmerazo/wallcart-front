@@ -124,15 +124,6 @@ export default {
 </script>
 
 <style>
-.container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  align-content: center;
-  padding-top: 20px;
-  padding-bottom: 20px;
-}
-
 .row {
   align-items: center;
   justify-items: center;
