@@ -1,5 +1,5 @@
 <template>
-  <section class="container" id="cont-login">     
+  <section id="cont-login">     
     <div class="col-12" id="form-user-login">
       <form @submit.prevent="userLogin" class="row">
         <img src="@/assets/resources/log_xara.png" alt="" id="log-login"> 
@@ -124,6 +124,15 @@ export default {
 </script>
 
 <style>
+section{
+  display: flex;
+  height: 96.3%;
+}
+
+.body{
+  background-color: #e010cf;
+}
+
 .row {
   align-items: center;
   justify-items: center;
@@ -139,6 +148,10 @@ export default {
 
 #cont-login{
   background-color: #b8abcc;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  
 }
 
 #fai-login{
@@ -174,7 +187,9 @@ export default {
   background-color: #e5e0f1;
   padding-bottom: 15px;
   border-radius: 15px;
-  margin-right: 50px;
   width: 360px;
+  height: 560px;
+  align-items: center;
+  display: flex;
 }
 </style>

@@ -1,4 +1,4 @@
 Pagination: https://jasonwatmore.com/post/2019/08/21/vue-js-simple-pagination-example
 Upload file Excel:  https://www.positronx.io/node-js-upload-excel-in-mysql-database-tutorial/
                     https://serversideup.net/uploading-files-vuejs-axios/
-
+Tailwindcss: https://tailwindcss.com/docs/font-size
