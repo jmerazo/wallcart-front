@@ -13,17 +13,14 @@
   >
   </SidebarMenuAkahonVue> 
   <router-view></router-view>
-  <footerComp></footerComp> 
 </template>
 
 <script>
-import footerComp from './components/footer.vue'
 import SidebarMenuAkahonVue from 'vue-sidebar-menu-akahon'
 
 export default {
   name: 'App',
   components: {
-    footerComp,
     SidebarMenuAkahonVue
   },
   props: ['menuTitle', 'menuLogo', 'menuIcon', 'menuItems', 'profileName', 'profileRole', ]

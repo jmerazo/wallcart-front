@@ -1,4 +1,9 @@
-Pagination: https://jasonwatmore.com/post/2019/08/21/vue-js-simple-pagination-example
+Pagination: https://www.youtube.com/watch?v=7_02Rg-YBZA&t=760s
 Upload file Excel:  https://www.positronx.io/node-js-upload-excel-in-mysql-database-tutorial/
                     https://serversideup.net/uploading-files-vuejs-axios/
 Tailwindcss: https://tailwindcss.com/docs/font-size
+Export XLSX: https://www.npmjs.com/package/xlsx
+Sidebar: https://vuejsexamples.com/a-beautiful-sidebar-menu-built-with-vue-js/
+Icons sidebar: https://boxicons.com/?query=alt
+Icons: https://fontawesome.com/search?q=excel&o=r
+
