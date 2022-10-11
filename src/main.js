@@ -10,6 +10,8 @@ import SidebarMenuAkahonVue from 'vue-sidebar-menu-akahon';
 import './index.css'
 import VueTailwind from 'vue3-tailwind'
 import { TPagination } from 'vue3-tailwind/dist/vue3-tailwind.esm'
+import VCalendar from 'v-calendar'
+import 'v-calendar/dist/style.css';
 
 // Import icons fortawesome
 import { 
@@ -155,6 +157,7 @@ createApp(App)
     .use(router)
     .use(Toaster)
     .use(VueTailwind, settings)
+    .use(VCalendar, {})
     .component('font-awesome-icon', FontAwesomeIcon)
     .component('vue-sidebar-menu-akahon', SidebarMenuAkahonVue)
     .mount('#app')

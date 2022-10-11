@@ -6,6 +6,7 @@ import PaymentsList from '@/views/Payments/Payments.vue';
 import PaymentsPanel from '@/views/Payments/Panel.vue'
 import PaymentsReports from '@/views/Payments/Reports.vue'
 import PaymentsUpload from '@/views/Payments/Upload.vue'
+import ReportAges from '@/views/Payments/Ages.vue'
 
 const routes = [
     {
@@ -52,6 +53,14 @@ const routes = [
         path: '/payments/upload',
         name: 'PaymentsUpload',
         component: PaymentsUpload,
+        meta: {
+            auth: false
+        }
+    },
+    {         
+        path: '/report/ages',
+        name: 'ReportAges',
+        component: ReportAges,
         meta: {
             auth: false
         }
