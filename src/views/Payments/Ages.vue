@@ -3,7 +3,7 @@
         <div id="form-search-data">
             <div class="row" id="form-search-parameters">
                 <div class="col-4" id="align-text-fai">
-                    <font-awesome-icon id="fai-search" :icon="['fas', 'calendar']"/><label class="form-label">Select date</label>
+                    <font-awesome-icon id="fai-search" :icon="['fas', 'calendar']"/><label class="form-label">Select date</label><br>
                     <v-date-picker class="inline-block h-full" v-model="date" :masks="masks" mode='date' data="YYYY-MM-DD" :format="YYYY-MM-DD">
                         <template v-slot="{ inputValue, togglePopover }">
                             <div class="flex items-center">
@@ -62,7 +62,7 @@
                     </thead>
                     <tbody>
                       <tr v-for="a in ages" :value="a.nit" :key="a.nit">
-                          <td>{{a.nombre +" - Nit: "+a.nit}}</td>
+                          <td><th v-if="a.cod_reg">{{a.cod_reg +" - "+a.nom_reg}}</th> {{a.nombre +" - Nit: "+a.nit}}</td>
                           <td>{{a.edad0}}</td>
                           <td>{{a.edad1}}</td>
                           <td>{{a.edad2}}</td>
