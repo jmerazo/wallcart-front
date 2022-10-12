@@ -4,7 +4,8 @@
             <div class="row" id="form-search-parameters">
                 <div class="col-4" id="align-text-fai">
                     <font-awesome-icon id="fai-search" :icon="['fas', 'calendar']"/><label class="form-label">Select date</label><br>
-                    <v-date-picker class="inline-block h-full" v-model="date" :masks="masks" mode='date' data="YYYY-MM-DD" :format="YYYY-MM-DD">
+                    <input v-model="dateIn" type="date"><br>
+                    <!--v-date-picker class="inline-block h-full" v-model="date" :masks="masks" mode='date' data="YYYY-MM-DD" :format="YYYY-MM-DD">
                         <template v-slot="{ inputValue, togglePopover }">
                             <div class="flex items-center">
                                 <button
@@ -28,13 +29,11 @@
                                 />
                             </div>
                         </template>
-                    </v-date-picker>
+                    </v-date-picker-->
                 </div>
 
-                {{this.date}}
-
                 <div class="col-2">
-                    <a id="btn-search-report" type="submit" class="btn" @click="searchParameters">Search</a>
+                    <a id="btn-search-report" type="submit" class="btn" @click="agesReport">Search</a>
                 </div>
             </div>
            
@@ -92,6 +91,7 @@ name: "PanelPayments",
 data() {
     return {
         date: null,
+        dateIn: null,
         masks: {
             input: 'YYYY-MM-DD'
         },
@@ -104,7 +104,6 @@ data() {
     };    
 },
 mounted() {
-    this.agesReport();
 },
 computed: {
 },
@@ -117,7 +116,7 @@ methods: {
         XLSX.writeFile(workbook, `${filename}.xlsx`);
     },
     async agesReport() {
-        await axios.get(`http://localhost:8844/api/report/ages/`, {
+        await axios.get(`http://localhost:8844/api/report/ages/${this.dateIn}`, {
         headers: {
             "Content-Type": "application/json",
             "Access-Control-Allow-Origin": "*"
