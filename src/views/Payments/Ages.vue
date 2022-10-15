@@ -33,74 +33,116 @@
                 </div>
 
                 <div class="col-2">
-                    <a id="btn-search-report" type="submit" class="btn" @click="agesReport">Search</a>
+                    <a id="btn-search-report" type="submit" class="btn" @click="agesReport">Generate</a>
                 </div>
             </div>
            
-            <a id="btn-search-export" title="Export report" type="submit" class="btn" @click="expReport"><font-awesome-icon id="fai-export" :icon="['fas', 'file-export']"/></a> 
+            <a id="btn-search-export" title="Export report" type="submit" class="btn" @click="expTable"><font-awesome-icon id="fai-export" :icon="['fas', 'file-export']"/></a> 
             <div class="row" id="form-label-input">
                 <img src="@/assets/resources/logoese.png" alt="Log ESE HJMH" id="img-report-ages">
                 <h2 id="register-title" class="font-bold text-2xl">E.S.E Hospital José María Hernández</h2>
                 <label id="register-subtitle" class="font-semibold text-lg">Nit: 891.200.679-1</label><br><br>
                 <span class="font-semibold text-lg">Informe de cuentas por cobrar de empresas deudoras vencidas</span>
-                <table class="table table table-striped table-hover">
+                <table class="table table table-striped table-hover" id="agesTable">
                     <thead class="thead-dark">
-                      <tr id="tr-title">
-                          <th>Empresa / Nit</th>
-                          <th>No Vencida</th>
-                          <th>1 a 30 días</th>
-                          <th>31 a 60 días</th>
-                          <th>61 a 90 días</th>
-                          <th>91 a 180 días</th>
-                          <th>181 a 360 días</th>
-                          <th>Más de 360 días</th>
-                          <th>Saldo por cobrar</th>
-                          <th>Glosas por cobrar</th>
-                          <th>Por conciliar</th>
-                      </tr>
+                        <tr id="tr-title">
+                            <th>Régimen</th>
+                            <th>Empresa / Nit</th>
+                            <th>No Vencida</th>
+                            <th>1 a 30 días</th>
+                            <th>31 a 60 días</th>
+                            <th>61 a 90 días</th>
+                            <th>91 a 180 días</th>
+                            <th>181 a 360 días</th>
+                            <th>Más de 360 días</th>
+                            <th>Saldo por cobrar</th>
+                        </tr>
                     </thead>
                     <tbody>
-                      <tr v-for="a in ages" :value="a.nit" :key="a.nit">
-                          <td><th v-if="a.cod_reg">{{a.cod_reg +" - "+a.nom_reg}}</th> {{a.nombre +" - Nit: "+a.nit}}</td>
-                          <td>{{a.edad0}}</td>
-                          <td>{{a.edad1}}</td>
-                          <td>{{a.edad2}}</td>
-                          <td>{{a.edad3}}</td>
-                          <td>{{a.edad4}}</td>
-                          <td>{{a.edad5}}</td>
-                          <td>{{a.edad6}}</td>
-                          <td>{{'p'}}</td>
-                          <td>{{'p'}}</td>
-                          <td>{{'p'}}</td>
-                      </tr>
+                        <tr v-for="a in dataPaginate" :value="a.nit" :key="a.nit">
+                            <th v-if="a.cod_reg">{{a.cod_reg +" - "+a.nom_reg}}</th>                           
+                            <td>{{a.nombre +" - Nit: "+a.nit}}</td>
+                            <td>{{a.edad0}}</td>
+                            <td>{{a.edad1}}</td>
+                            <td>{{a.edad2}}</td>
+                            <td>{{a.edad3}}</td>
+                            <td>{{a.edad4}}</td>
+                            <td>{{a.edad5}}</td>
+                            <td>{{a.edad6}}</td>
+                            <td>{{a.edad0+a.edad1+a.edad2+a.edad3+a.edad4+a.edad5+a.edad6}}</td>
+                        </tr>
                     </tbody>
-                  </table> 
-            </div>        
+                </table> 
+
+                <table class="table table table-striped table-hover" id="tableNone">
+                    <thead class="thead-dark">
+                        <tr id="tr-title">
+                            <th>Régimen</th>
+                            <th>Empresa / Nit</th>
+                            <th>No Vencida</th>
+                            <th>1 a 30 días</th>
+                            <th>31 a 60 días</th>
+                            <th>61 a 90 días</th>
+                            <th>91 a 180 días</th>
+                            <th>181 a 360 días</th>
+                            <th>Más de 360 días</th>
+                            <th>Saldo por cobrar</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr v-for="a in ages" :value="a.nit" :key="a.nit">
+                            <th v-if="a.cod_reg">{{a.cod_reg +" - "+a.nom_reg}}</th>                           
+                            <td>{{a.nombre +" - Nit: "+a.nit}}</td>
+                            <td>{{a.edad0}}</td>
+                            <td>{{a.edad1}}</td>
+                            <td>{{a.edad2}}</td>
+                            <td>{{a.edad3}}</td>
+                            <td>{{a.edad4}}</td>
+                            <td>{{a.edad5}}</td>
+                            <td>{{a.edad6}}</td>
+                            <td>{{a.edad0+a.edad1+a.edad2+a.edad3+a.edad4+a.edad5+a.edad6}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <nav aria-label="Page navigation example" id="pagination-ages">
+                <ul class="pagination">
+                  <li class="page-item" @click="getPreviousPage"><a class="page-link" href="#">Previous</a></li>
+                  <li v-for="page in totalPages()" :key="page" @click="getDataPages(page)" class="page-item"><a class="page-link" href="#">{{page}}</a></li>
+                  <li class="page-item" @click="getNextPage"><a class="page-link" href="#">Next</a></li>
+                </ul>
+            </nav>          
         </div>     
     </section>     
   </template>
-  
+
 <script>
 import axios from "axios";
 import * as XLSX from 'xlsx/xlsx.mjs';
+import DataTable from 'datatables.net-vue3';
+import Buttons from 'datatables.net-buttons';
+import ButtonsHtml5 from 'datatables.net-buttons/js/buttons.html5';
+
+DataTable.use(Buttons);
+DataTable.use(ButtonsHtml5);
 
 export default {
 components: {
 },
 name: "PanelPayments",
+setup(){  
+},
 data() {
     return {
-        date: null,
         dateIn: null,
         masks: {
             input: 'YYYY-MM-DD'
         },
-        nit: null,
-        nits: null,
-        sale: null,
         ages: [],
-        date_init: null,
-        date_end: null
+        itemsPerPage: 30,
+        dataPaginate: [],
+        actualPage: 1,
+        dateReport: new Date()
     };    
 },
 mounted() {
@@ -108,11 +150,96 @@ mounted() {
 computed: {
 },
 methods: {
+    expTable(){
+        var workbook = XLSX.utils.table_to_book(document.getElementById("tableNone"));
+        const filename = `HJMH_REPORT_AGES_TO_${this.dateIn}_DOWNLOAD_${this.dateReport}`;
+        //const sn = `AGES_${this.dateIn}`;
+        //XLSX.utils.book_append_sheet(workbook, data, sn);
+        //XLSX.utils.sheet_add_aoa(workbook, [
+        //    ["E.S.E Hospital José María Hernández"],
+        //    ['Nit: 891.200.679-1'],                             // <-- Write 1 to cell B3
+        //    ,                                // <-- Do nothing in row 4
+        //    ["Informe de cuentas por cobrar de empresas deudoras vencidas"]  // <-- Write "abc" to cell E5
+        //], { origin: "E1" });
+        XLSX.writeFile(workbook, `${filename}.xlsx`);
+    },
+    generateArray(table) {
+        var out = [];
+        var rows = table.querySelectorAll('tr');
+        var ranges = [];
+        for (var R = 0; R < rows.length; ++R) {
+            var outRow = [];
+            var row = rows[R];
+            var columns = row.querySelectorAll('td');
+            for (var C = 0; C < columns.length; ++C) {
+            var cell = columns[C];
+            var colspan = cell.getAttribute('colspan');
+            var rowspan = cell.getAttribute('rowspan');
+            var cellValue = cell.innerText;
+            if (cellValue !== "" && cellValue == +cellValue) cellValue = +cellValue;
+
+            //Skip ranges
+            ranges.forEach(function (range) {
+                if (R >= range.s.r && R <= range.e.r && outRow.length >= range.s.c && outRow.length <= range.e.c) {
+                for (var i = 0; i <= range.e.c - range.s.c; ++i) outRow.push(null);
+                }
+            });
+
+            //Handle Row Span
+            if (rowspan || colspan) {
+                rowspan = rowspan || 1;
+                colspan = colspan || 1;
+                ranges.push({
+                s: {
+                    r: R,
+                    c: outRow.length
+                },
+                e: {
+                    r: R + rowspan - 1,
+                    c: outRow.length + colspan - 1
+                }
+                });
+            }
+
+            //Handle Value
+            outRow.push(cellValue !== "" ? cellValue : null);
+
+            //Handle Colspan
+            if (colspan)
+                for (var k = 0; k < colspan - 1; ++k) outRow.push(null);
+            }
+            out.push(outRow);
+        }
+        return [out, ranges];
+    },
+    totalPages() {
+      return Math.ceil(this.ages.length / this.itemsPerPage)
+    },
+    getDataPages(numPage){
+      this.actualPage = numPage;
+      this.dataPaginate = [];
+      let ini = (numPage * this.itemsPerPage) - this.itemsPerPage;
+      let end = (numPage * this.itemsPerPage);
+      this.dataPaginate = this.ages.slice(ini, end);
+    },
+    getPreviousPage(){
+      if(this.actualPage > 1){
+        this.actualPage--;
+      }
+      this.getDataPages(this.actualPage)
+    },
+    getNextPage(){
+      if(this.actualPage < this.totalPages){
+        this.actualPage++;
+      }
+      this.getDataPages(this.actualPage)
+    },  
     expReport() {
-        let data = XLSX.utils.json_to_sheet(this.search);
+        let data = XLSX.utils.json_to_sheet(this.ages);
         const workbook = XLSX.utils.book_new();
-        const filename = "report_payments";
-        XLSX.utils.book_append_sheet(workbook, data, filename);
+        const filename = `HJMH_REPORT_AGES_TO_${this.dateIn}_DOWNLOAD_${this.dateReport}`;
+        const sn = `AGES_${this.dateIn}`;
+        XLSX.utils.book_append_sheet(workbook, data, sn);
         XLSX.writeFile(workbook, `${filename}.xlsx`);
     },
     async agesReport() {
@@ -124,6 +251,7 @@ methods: {
         })
         .then((Response) => {
             this.ages = Response.data;
+            this.getDataPages(1)
         });
     }          
 }
@@ -135,6 +263,14 @@ methods: {
   align-items: center;
   justify-items: center;
   justify-content: center;
+}
+
+#pagination-ages{
+    margin-bottom: 20px;
+}
+
+#tableNone{
+    display: none;
 }
 
 #img-report-ages{
