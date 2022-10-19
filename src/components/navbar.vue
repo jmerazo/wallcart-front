@@ -52,8 +52,11 @@
                       <span class="caret"></span>
                     </button>
                     <ul class="dropdown-menu" role="menu" aria-labelledby="btncircle">
-                      <li><h6 id="t-log">User</h6></li>
-                      <li class="divider"></li>
+                      <li v-show="uid"><h6 id="t-log">{{ this.names +' '+this.last_names }}</h6></li>
+                      <li class="dropdown-divider"></li>
+                      <li v-show="this.rol != 1 && uid"><a class="dropdown-item" href="/user/panel"><font-awesome-icon id="fai-log" :icon="['fas', 'columns']"/>Panel</a></li>
+                      <li v-show="this.rol == 1 && uid"><a class="dropdown-item" href="/user/panel/administrator"><font-awesome-icon id="fai-log" :icon="['fas', 'columns']"/>Panel</a></li>
+                      <li class="dropdown-divider"></li>
                       <li><a class="dropdown-item" type="button" @click="logOut"><font-awesome-icon id="fai-log" :icon="['fas', 'right-from-bracket']"/>Log out</a></li>
                     </ul>
                   </div>                                 
@@ -64,16 +67,40 @@
         </nav>
       </div>
   </template>
+
   <script>
+import axios from 'axios'
   export default {
     name: "navbar-app",
     data(){
       return {
+        names: "",
+        last_names: "",
+        rol: localStorage.getItem('rol'),
+        uid: localStorage.getItem('user_id')
       }    
     },
     mounted() {
+      this.userById();
     }, 
     methods: {
+      async userById(){
+        if(!this.uid){
+            this.names = ""
+        }else{
+            await axios.get(`http://localhost:8844/api/user/${this.uid}`, {
+            headers: {
+                "Content-Type": "application/json",
+                "Access-Control-Allow-Origin": "*"
+            }
+            })
+            .then((Response) => {
+                console.log("Store response username: ", Response.data)
+                this.names = Response.data[0].names;
+                this.last_names = Response.data[0].last_names;
+            });
+        }
+      },
       logOut() {
         localStorage.removeItem("token")
         localStorage.removeItem('user_id')
@@ -86,6 +113,8 @@
   <style>
   .header {
     display: flex;
+    position: sticky;
+    top: 0;
     border-bottom: 1px solid #acacac;
   }
   

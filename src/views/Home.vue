@@ -63,7 +63,6 @@ export default {
               email: this.email,
               password: this.password
         })
-        console.log("user: ", user) 
         await axios.post("http://localhost:8844/api-auth/user/auth", user, {
             headers: {
                 'Content-Type': 'application/json',
@@ -76,11 +75,7 @@ export default {
           this.status = response.data.status;
           this.un = response.data.email;
           localStorage.setItem('user_id', response.data.id);
-          localStorage.setItem('rol', response.data.rol_id);
-          console.log("token: ", response.data.token)
-          console.log("Rol: ", response.data.rol_id);
-          console.log("Status: ", response.data.status);
-          console.log("Email: ", response.data.email);        
+          localStorage.setItem('rol', response.data.rol_id);     
 
           if(this.status == 1){
             if(this.rol == 1){
@@ -91,7 +86,7 @@ export default {
               })
             }else{
               this.$router.push({
-                name: 'Panel',
+                name: 'PaymentsReports',
                 params: {email: this.un, rol_id: this.rol, status: this.status, user_id: this.userid}
               })
             }
@@ -144,8 +139,8 @@ section{
 #log-login{
   margin-bottom: 20px;
   margin-top: 20px;
-  width: 220px;
-  height: 100%;
+  width: 190px;
+  height: 170;
 }
 
 #cont-login{
@@ -153,7 +148,7 @@ section{
   justify-content: center;
   display: flex;
   align-items: center;
-  height: 100%;
+  height: 93.5%;
   
 }
 
@@ -195,7 +190,7 @@ section{
   padding-bottom: 15px;
   border-radius: 15px;
   width: 360px;
-  height: 560px;
+  height: 500px;
   align-items: center;
   display: flex;
 }
