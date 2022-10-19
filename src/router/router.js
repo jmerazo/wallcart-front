@@ -22,7 +22,7 @@ const routes = [
         name: 'PanelAdmin',
         component: PanelAdmin,
         meta: {
-            auth: false
+            auth: true
         }
     },
     {         
@@ -30,7 +30,7 @@ const routes = [
         name: 'PaymentsList',
         component: PaymentsList,
         meta: {
-            auth: false
+            auth: true
         }
     },
     {         
@@ -38,7 +38,7 @@ const routes = [
         name: 'PaymentsPanel',
         component: PaymentsPanel,
         meta: {
-            auth: false
+            auth: true
         }
     },
     {         
@@ -46,7 +46,7 @@ const routes = [
         name: 'PaymentsReports',
         component: PaymentsReports,
         meta: {
-            auth: false
+            auth: true
         }
     },
     {         
@@ -54,7 +54,7 @@ const routes = [
         name: 'PaymentsUpload',
         component: PaymentsUpload,
         meta: {
-            auth: false
+            auth: true
         }
     },
     {         
@@ -62,7 +62,7 @@ const routes = [
         name: 'ReportAges',
         component: ReportAges,
         meta: {
-            auth: false
+            auth: true
         }
     }
 ]

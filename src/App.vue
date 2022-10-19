@@ -1,5 +1,5 @@
 <template>
-  <SidebarMenuAkahonVue 
+  <!--SidebarMenuAkahonVue 
     menuTitle="Xara" 
     profileName="Jeff Baeza" 
     profileRole="Administrator"
@@ -10,20 +10,28 @@
       {link: "/payments/upload",name: "Upload", tooltip: "Dashboard", icon: "bx-transfer-alt" },
       {link: "#",name: "Profile", tooltip: "Dashboard", icon: "bx-window-alt" }
     ]'
+    isSearch='false'
+    isExitButton="logOut"
   >
-  </SidebarMenuAkahonVue> 
+  </SidebarMenuAkahonVue-->
+  <navBarApp></navBarApp> 
   <router-view></router-view>
 </template>
 
 <script>
-import SidebarMenuAkahonVue from 'vue-sidebar-menu-akahon'
+//import SidebarMenuAkahonVue from 'vue-sidebar-menu-akahon'
+import navBarApp from '@/components/navbar.vue'
 
 export default {
   name: 'App',
   components: {
-    SidebarMenuAkahonVue
-  },
-  props: ['menuTitle', 'menuLogo', 'menuIcon', 'menuItems', 'profileName', 'profileRole', ]
+    //SidebarMenuAkahonVue
+    navBarApp
+},
+  props: ['menuTitle', 'menuLogo', 'menuIcon', 'menuItems', 'profileName', 'profileRole', 'isSearch', 'isExitButton'],
+  methods: {
+    
+  }
 }
 </script>
 

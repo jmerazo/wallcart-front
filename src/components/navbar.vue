@@ -4,9 +4,6 @@
           <div class="container-fluid">
             <div class="nav-start">
               <a class="navbar-brand" href="/" id="txt-nav-log">
-               <img src="@/assets/resources/cob.png"
-                width="90"
-                height="60"/>
                 Xara
               </a>
             </div>
@@ -26,19 +23,27 @@
             <div class="collapse navbar-collapse" id="nav-end">
               <ul class="navbar-nav">
                 <li class="nav-item">
-                  <a class="nav-item nav-link btn btn-light" href="/" id="txt-nav">Inicio</a>
+                  <a class="nav-item nav-link btn btn-light" href="/" id="txt-nav">Home</a>
                 </li>
 
                 <li class="nav-item">
-                  <a class="nav-item nav-link btn btn-light" href="#" id="txt-nav">Consultas</a>
-                  <ul>
-                    <li><a href="">Search</a></li>
-                    <li><a href="">Parameters</a></li>
-                  </ul>
+                  <a class="nav-item nav-link btn btn-light" href="/payments/reports" id="txt-nav">Searchs</a>
                 </li>
   
                 <li class="nav-item">
-                  <a class="nav-item nav-link btn btn-light" href="#" id="txt-nav">Reportes</a>
+                  <a class="nav-item nav-link btn btn-light" href="/payments/upload" id="txt-nav">Uploads</a>
+                </li>
+
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Reports
+                  </a>
+                  <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item" href="/report/ages">Ages</a></li>
+                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="#">History</a></li>
+                  </ul>
                 </li>
                 
                 <li class="nav-item">
@@ -49,7 +54,7 @@
                     <ul class="dropdown-menu" role="menu" aria-labelledby="btncircle">
                       <li><h6 id="t-log">User</h6></li>
                       <li class="divider"></li>
-                      <li><a class="dropdown-item" type="button"><font-awesome-icon id="fai-log" :icon="['fas', 'right-from-bracket']"/>Log out</a></li>
+                      <li><a class="dropdown-item" type="button" @click="logOut"><font-awesome-icon id="fai-log" :icon="['fas', 'right-from-bracket']"/>Log out</a></li>
                     </ul>
                   </div>                                 
                 </li>          
@@ -68,7 +73,13 @@
     },
     mounted() {
     }, 
-    methods: { 
+    methods: {
+      logOut() {
+        localStorage.removeItem("token")
+        localStorage.removeItem('user_id')
+        localStorage.removeItem('rol')
+        this.$router.push('/')
+      }    
     }
   }
   </script>
@@ -105,14 +116,17 @@
   
   #txt-nav-log{
     color: #000000;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-size: 1.8em;
     font-weight: bold;
   }
   
   #txt-nav {
     color: #000000;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 1.1em;
+  }
+
+  #navbarDropdown {
+    color: #000000;
     font-size: 1.1em;
   }
   

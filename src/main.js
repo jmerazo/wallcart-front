@@ -59,7 +59,8 @@ import {
     faCreditCard,
     faFileExport,
     faFileExcel,
-    faFileArrowUp
+    faFileArrowUp,
+    faGear
 } from '@fortawesome/free-solid-svg-icons'
 import { 
     faFacebook, 
@@ -118,7 +119,8 @@ library.add(
     faCreditCard,
     faFileExport,
     faFileExcel,
-    faFileArrowUp
+    faFileArrowUp,
+    faGear
 )
 
 const settings = {

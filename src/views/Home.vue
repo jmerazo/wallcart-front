@@ -20,7 +20,7 @@
               <font-awesome-icon id="fai-login" :icon="['fas', 'unlock']"/>
               <label class="form-label font-semibold">Password</label>
             </div>
-            <input id="i-login" v-model="password" type="password" class="form-control" placeholder="wallcart123*" required>
+            <input id="i-login-pass" v-model="password" type="password" class="form-control" placeholder="wallcart123*" required>
           </div>
 
           <div class="col-4">
@@ -62,7 +62,8 @@ export default {
         const user = JSON.stringify({
               email: this.email,
               password: this.password
-        }) 
+        })
+        console.log("user: ", user) 
         await axios.post("http://localhost:8844/api-auth/user/auth", user, {
             headers: {
                 'Content-Type': 'application/json',
@@ -76,6 +77,7 @@ export default {
           this.un = response.data.email;
           localStorage.setItem('user_id', response.data.id);
           localStorage.setItem('rol', response.data.rol_id);
+          console.log("token: ", response.data.token)
           console.log("Rol: ", response.data.rol_id);
           console.log("Status: ", response.data.status);
           console.log("Email: ", response.data.email);        
@@ -84,7 +86,7 @@ export default {
             if(this.rol == 1){
               console.log("Login username: ", this.un);
               this.$router.push({
-                name: 'PanelAdmin',
+                name: 'PaymentsReports',
                 params: {email: this.un, rol_id: this.rol, status: this.status, user_id: this.userid},
               })
             }else{
@@ -143,7 +145,7 @@ section{
   margin-bottom: 20px;
   margin-top: 20px;
   width: 220px;
-  height: 200px;
+  height: 100%;
 }
 
 #cont-login{
@@ -151,6 +153,7 @@ section{
   justify-content: center;
   display: flex;
   align-items: center;
+  height: 100%;
   
 }
 
@@ -163,6 +166,10 @@ section{
 }
 
 #i-login{
+  text-align: center;
+}
+
+#i-login-pass{
   text-align: center;
 }
 
