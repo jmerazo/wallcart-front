@@ -60,7 +60,8 @@ import {
     faFileExport,
     faFileExcel,
     faFileArrowUp,
-    faGear
+    faGear,
+    faFilter
 } from '@fortawesome/free-solid-svg-icons'
 import { 
     faFacebook, 
@@ -120,7 +121,8 @@ library.add(
     faFileExport,
     faFileExcel,
     faFileArrowUp,
-    faGear
+    faGear,
+    faFilter
 )
 
 const settings = {

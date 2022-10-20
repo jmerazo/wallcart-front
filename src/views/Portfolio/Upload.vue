@@ -32,7 +32,7 @@
   export default {
     components: {
     },
-    name: "UploadPortfolio",
+    name: "UploadPayments",
     data() {
       return {
         exFile : null
@@ -53,9 +53,10 @@
         },
         async uploadExFile() {
             const excFile = new FormData();
-            excFile.append('upload-excel', this.exFile)
-            console.log('File: ', this.exFile);
-            await axios.post(`http://localhost:8844/api/upload-excel`, excFile, {
+            console.log("File: ", this.exFile)
+            excFile.append('p-upload-excel', this.exFile)
+            console.log("File: ", excFile)
+            await axios.post(`http://localhost:8844/api/portfolio/upload-excel`, excFile, {
             headers: {
                 'Content-Type': 'multipart/form-data',
                 "Access-Control-Allow-Origin": "*"
@@ -66,7 +67,12 @@
                     this.$toast.success(`File upload successfull`, {
                     position: 'top-right',
                     duration: 8000
-                });}
+                });}else{
+                    this.$toast.danger(`File upload fail`, {
+                        position: 'top-right',
+                        duration: 8000
+                    })
+                }
                 console.log('Success')
             })
             .catch(()=>{
