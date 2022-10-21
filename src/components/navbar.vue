@@ -42,6 +42,7 @@
                     <li><a class="dropdown-item" href="/report/ages">Ages</a></li>
                     <li><a class="dropdown-item" href="/portfolio/reports">Search</a></li>
                     <li><a class="dropdown-item" href="/portfolio/upload">Upload</a></li>
+                    <li><a class="dropdown-item" href="/portfolio/consolidated">Consolidated</a></li>
                     <li><hr class="dropdown-divider"></li>
                     <li><a class="dropdown-item" href="#">History</a></li>
                   </ul>

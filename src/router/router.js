@@ -9,6 +9,7 @@ import PaymentsUpload from '@/views/Payments/Upload.vue'
 import ReportAges from '@/views/Payments/Ages.vue'
 import PortfolioReports from '@/views/Portfolio/Reports.vue'
 import PortfolioUpload from '@/views/Portfolio/Upload.vue'
+import ConsolidatedPortfolio from '@/views/Portfolio/Consolidated.vue'
 
 const routes = [
     {
@@ -79,6 +80,14 @@ const routes = [
         path: '/portfolio/upload',
         name: 'PortfolioUpload',
         component: PortfolioUpload,
+        meta: {
+            auth: true
+        }
+    },
+    {         
+        path: '/portfolio/consolidated',
+        name: 'ConsolidatedPortfolio',
+        component: ConsolidatedPortfolio,
         meta: {
             auth: true
         }
