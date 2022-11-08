@@ -114,7 +114,7 @@
             </nav>          
         </div>     
     </section>     
-  </template>
+</template>
 
 <script>
 import axios from "axios";

@@ -4,7 +4,7 @@
           <div class="container-fluid">
             <div class="nav-start">
               <a class="navbar-brand" href="/" id="txt-nav-log">
-                Xara
+                Sahara
               </a>
             </div>
   
@@ -39,10 +39,11 @@
                     Portfolio
                   </a>
                   <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <li><a class="dropdown-item" href="/report/ages">Ages</a></li>
-                    <li><a class="dropdown-item" href="/portfolio/reports">Search</a></li>
-                    <li><a class="dropdown-item" href="/portfolio/upload">Upload</a></li>
-                    <li><a class="dropdown-item" href="/portfolio/consolidated">Consolidated</a></li>
+                    <li><a class="dropdown-item" href="/report/ages"><font-awesome-icon id="fai-drop" :icon="['fas', 'list-numeric']"/>Ages</a></li>
+                    <li><a class="dropdown-item" href="/portfolio/reports"><font-awesome-icon id="fai-drop" :icon="['fas', 'magnifying-glass']"/>Search</a></li>
+                    <li><a class="dropdown-item" href="/portfolio/upload"><font-awesome-icon id="fai-drop" :icon="['fas', 'file-upload']"/>Upload</a></li>
+                    <li><a class="dropdown-item" href="/portfolio/consolidated"><font-awesome-icon id="fai-drop" :icon="['fas', 'file-signature']"/>Consolidated</a></li>
+                    <li><a class="dropdown-item" href="/validity/report"><font-awesome-icon id="fai-drop" :icon="['fas', 'calendar']"/>Validity</a></li>
                     <li><hr class="dropdown-divider"></li>
                     <li><a class="dropdown-item" href="#">History</a></li>
                   </ul>
@@ -143,6 +144,12 @@ import axios from 'axios'
   
   #t-log{
     margin-left: 10px;
+  }
+
+  #fai-drop{
+    width: 15px;
+    height: 15px;
+    margin-right: 5px;
   }
   
   #btncircle{

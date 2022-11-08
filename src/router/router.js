@@ -10,6 +10,7 @@ import ReportAges from '@/views/Payments/Ages.vue'
 import PortfolioReports from '@/views/Portfolio/Reports.vue'
 import PortfolioUpload from '@/views/Portfolio/Upload.vue'
 import ConsolidatedPortfolio from '@/views/Portfolio/Consolidated.vue'
+import ValidityReport from '@/views/Payments/Validity.vue'
 
 const routes = [
     {
@@ -88,6 +89,14 @@ const routes = [
         path: '/portfolio/consolidated',
         name: 'ConsolidatedPortfolio',
         component: ConsolidatedPortfolio,
+        meta: {
+            auth: true
+        }
+    },
+    {         
+        path: '/validity/report',
+        name: 'ValidityReport',
+        component: ValidityReport,
         meta: {
             auth: true
         }
