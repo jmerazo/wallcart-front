@@ -1,6 +1,10 @@
 <template>
     <section>
         <div id="form-validity">
+            <img src="@/assets/resources/logoese.png" alt="Log ESE HJMH" id="img-report-ages">
+            <h2 id="register-title" class="font-bold text-2xl">E.S.E Hospital José María Hernández</h2>
+            <label id="register-subtitle" class="font-semibold text-lg">Nit: 891.200.679-1</label><br>
+            <span class="font-semibold text-lg">Informe de vigencias</span><br><br>
             <h2 class="font-bold text-2xl">Validity</h2>
             <label class="font-semibold text-lg">From 1996 to the current validity</label><br>
 
@@ -8,12 +12,12 @@
                 <div class="col-4" id="select-years">
                     <select v-model="year" class="form-control" id="validity-select">
                         <option disabled selected hidden value="">Select a year...</option>
-                        <option value="y" v-for="y in yearsList()" :key="y">{{y}}</option>
+                        <option v-for="y in yearsList()" :key="y">{{y}}</option>
                     </select>
                 </div>           
 
                 <div class="col-2">
-                    <a id="btn-validity-report" type="submit" class="btn">Generate</a>
+                    <a id="btn-validity-report" type="submit" class="btn" @click="validityList()">Generate</a>
                 </div>
             </div>            
         
@@ -97,8 +101,8 @@ export default {
     };    
   },
   mounted() {
-    this.validityList();
-    this.getDataPages(1);
+    //this.validityList();
+    //this.getDataPages(1);
   },
   computed: {
     
@@ -106,9 +110,7 @@ export default {
   methods: {
     yearsList(){
         for(this.endYear;this.endYear<=this.currentYear;this.endYear++){
-            console.log(this.endYear)
             this.years = this.years.concat(this.endYear)
-            console.log(this.years)
         }
         return this.years;
     },
@@ -140,7 +142,8 @@ export default {
       this.getDataPages(this.actualPage)
     }, 
     async validityList(){
-      await axios.get("http://localhost:8844/api/validity/report", {
+      console.log(this.year)
+      await axios.get(`http://localhost:8844/api/validity/report/${this.year}`, {
         headers: {
           "Content-Type": "application/json",
           "Access-Control-Allow-Origin": "*"
@@ -148,6 +151,7 @@ export default {
       })
       .then((Response) => {
         this.validity = Response.data;
+        this.getDataPages(1)
       });
     }
   }
@@ -168,6 +172,9 @@ export default {
 
 #form-validity{
     padding-top: 50px;
+    width: 98%;
+    margin-left: 10px;
+    margin-right: 10px;
 }
 
 #table-validity-none{
