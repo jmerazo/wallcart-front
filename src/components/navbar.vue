@@ -23,7 +23,7 @@
             <div class="collapse navbar-collapse" id="nav-end">
               <ul class="navbar-nav">
                 <li class="nav-item">
-                  <a class="nav-item nav-link btn btn-light" href="/" id="txt-nav">Home</a>
+                  <a class="nav-item nav-link btn btn-light" href="/dashboard" id="txt-nav">Home</a>
                 </li>
 
                 <li class="nav-item">
@@ -57,6 +57,7 @@
                     <ul class="dropdown-menu" role="menu" aria-labelledby="btncircle">
                       <li v-show="uid"><h6 id="t-log">{{ this.names +' '+this.last_names }}</h6></li>
                       <li class="dropdown-divider"></li>
+                      <li><a class="dropdown-item" href="/"><font-awesome-icon id="fai-log" :icon="['fas', 'columns']"/>Login</a></li>
                       <li v-show="this.rol != 1 && uid"><a class="dropdown-item" href="/user/panel"><font-awesome-icon id="fai-log" :icon="['fas', 'columns']"/>Panel</a></li>
                       <li v-show="this.rol == 1 && uid"><a class="dropdown-item" href="/user/panel/administrator"><font-awesome-icon id="fai-log" :icon="['fas', 'columns']"/>Panel</a></li>
                       <li class="dropdown-divider"></li>

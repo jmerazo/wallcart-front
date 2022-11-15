@@ -10,10 +10,11 @@
 
             <div class="row">
                 <div class="col-4" id="select-years">
-                    <select v-model="year" class="form-control" id="validity-select">
-                        <option disabled selected hidden value="">Select a year...</option>
-                        <option v-for="y in yearsList()" :key="y">{{y}}</option>
-                    </select>
+                  <span class="font-bold">Initial year: </span>
+                  <select v-model="year" class="form-control" id="validity-select">
+                      <option disabled selected hidden value="">Select a year...</option>
+                      <option v-for="y in yearsList()" :key="y">{{y}}</option>
+                  </select>
                 </div>           
 
                 <div class="col-2">
