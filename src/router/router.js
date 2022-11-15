@@ -11,6 +11,7 @@ import PortfolioReports from '@/views/Portfolio/Reports.vue'
 import PortfolioUpload from '@/views/Portfolio/Upload.vue'
 import ConsolidatedPortfolio from '@/views/Portfolio/Consolidated.vue'
 import ValidityReport from '@/views/Payments/Validity.vue'
+import Dashboard from '@/views/Dashboard.vue'
 
 const routes = [
     {
@@ -34,7 +35,7 @@ const routes = [
         name: 'PaymentsList',
         component: PaymentsList,
         meta: {
-            auth: true
+            auth: false
         }
     },
     {         
@@ -50,7 +51,7 @@ const routes = [
         name: 'PaymentsReports',
         component: PaymentsReports,
         meta: {
-            auth: true
+            auth: false
         }
     },
     {         
@@ -66,7 +67,7 @@ const routes = [
         name: 'ReportAges',
         component: ReportAges,
         meta: {
-            auth: true
+            auth: false
         }
     },
     {         
@@ -74,7 +75,7 @@ const routes = [
         name: 'PortfolioReports',
         component: PortfolioReports,
         meta: {
-            auth: true
+            auth: false
         }
     },
     {         
@@ -90,13 +91,21 @@ const routes = [
         name: 'ConsolidatedPortfolio',
         component: ConsolidatedPortfolio,
         meta: {
-            auth: true
+            auth: false
         }
     },
     {         
         path: '/validity/report',
         name: 'ValidityReport',
         component: ValidityReport,
+        meta: {
+            auth: false
+        }
+    },
+    {         
+        path: '/dashboard',
+        name: 'Dashboard',
+        component: Dashboard,
         meta: {
             auth: true
         }

@@ -42,7 +42,66 @@
               <div class="col-2">
                 <a id="btn-upload-payments" type="submit" class="btn" value="Store File" @click="uploadExFilePayments">Upload</a>
               </div>
-            </div>       
+            </div>
+            
+            <div v-show="payDuplicate.length != 0">
+              <span class="font-bold text-2xl">Already exits, not uploaded</span>
+              <table class="table table table-striped table-hover">
+                <thead class="thead-dark">
+                    <tr id="tr-title">
+                        <th>NIT</th>
+                        <th>CONTRATO</th>
+                        <th>CUENTA</th>
+                        <th>FECHA CUENTA</th>
+                        <th>FACTURA</th>
+                        <th>VR TOTAL FRA</th>
+                        <th>VR ABONADO</th>
+                        <th>FECHA ABONO</th>
+                    </tr>
+                </thead>
+                <tbody>                      
+                    <tr v-for="pd in payDuplicate" :value="pd.nit" :key="pd.nit">
+                        <td>{{pd.nit}}</td>
+                        <td>{{pd.contrato}}</td>
+                        <td>{{pd.cuenta}}</td>
+                        <td>{{pd.fecha_cuenta}}</td>
+                        <td>{{pd.factura}}</td>
+                        <td>{{pd.valor_total_factura}}</td>
+                        <td>{{pd.valor_abonado}}</td>
+                        <td>{{pd.fecha_abono}}</td>
+                    </tr>
+                </tbody>
+              </table>
+            </div>
+            <div v-show="payUpload.length != 0">
+              <span class="font-bold text-2xl">Payments loaded successfully</span>
+              <table class="table table table-striped table-hover">
+                <thead class="thead-dark">
+                    <tr id="tr-title">
+                        <th>NIT</th>
+                        <th>CONTRATO</th>
+                        <th>CUENTA</th>
+                        <th>FECHA CUENTA</th>
+                        <th>FACTURA</th>
+                        <th>VR TOTAL FRA</th>
+                        <th>VR ABONADO</th>
+                        <th>FECHA ABONO</th>
+                    </tr>
+                </thead>
+                <tbody>                      
+                    <tr v-for="pd in payUpload" :value="pd.nit" :key="pd.nit">
+                        <td>{{pd.nit}}</td>
+                        <td>{{pd.contrato}}</td>
+                        <td>{{pd.cuenta}}</td>
+                        <td>{{pd.fecha_cuenta}}</td>
+                        <td>{{pd.factura}}</td>
+                        <td>{{pd.valor_total_factura}}</td>
+                        <td>{{pd.valor_abonado}}</td>
+                        <td>{{pd.fecha_abono}}</td>
+                    </tr>
+                </tbody>
+              </table>
+            </div>
           </div>
         </form>
       </div>      
@@ -57,7 +116,9 @@
     name: "UploadPayments",
     data() {
       return {
-        exFile : null
+        exFile : null,
+        payDuplicate: [],
+        payUpload: []
       };    
     },
     mounted() {
@@ -114,19 +175,25 @@
             })
             .then((response) => {
                 if(response){
-                    this.$toast.success(`File upload successfull`, {
-                    position: 'top-right',
-                    duration: 8000
+                  console.log('Response: ', response)
+                  this.payDuplicate = response.data.paymentNot;
+                  this.payUpload = response.data.paymentSuccessfull;
+                  this.$toast.success(`File upload successfull`, {
+                  position: 'top-right',
+                  duration: 8000
                 });}else{
-                    this.$toast.danger(`File upload fail`, {
-                        position: 'top-right',
-                        duration: 8000
-                    })
+                  this.$toast.danger(`File upload fail`, {
+                      position: 'top-right',
+                      duration: 8000
+                  })
                 }
-                console.log('Success')
             })
-            .catch(()=>{
-                console.log("Fail to upload!")
+            .catch((e)=>{
+              this.$toast.danger(`File upload fail`, {
+                  position: 'top-right',
+                  duration: 8000
+              })
+              console.log("Fail to upload!",e)
             })
         }
 

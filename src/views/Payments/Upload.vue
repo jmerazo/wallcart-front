@@ -63,11 +63,11 @@
             })
             .then((response) => {
                 if(response){
-                    this.$toast.success(`File upload successfull`, {
-                    position: 'top-right',
-                    duration: 8000
+                  console.log(response)
+                  this.$toast.success(`File upload successfull`, {
+                  position: 'top-right',
+                  duration: 8000
                 });}
-                console.log('Success')
             })
             .catch(()=>{
                 console.log("Fail to upload!")
