@@ -34,6 +34,14 @@
                   <a class="nav-item nav-link btn btn-light" href="/payments/upload" id="txt-nav">Uploads</a>
                 </li>
 
+                <li  class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"><font-awesome-icon id="fai-drop" :icon="['fas', 'file-upload']"/>Upload</a>
+                  <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item" href="/portfolio/upload/beads"><font-awesome-icon id="fai-drop" :icon="['fas', 'list-numeric']"/>Beads</a></li>
+                    <li><a class="dropdown-item" href="/portfolio/upload/payments"><font-awesome-icon id="fai-drop" :icon="['fas', 'list-numeric']"/>Payments</a></li>
+                  </ul>
+                </li>
+
                 <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     Portfolio
@@ -41,7 +49,6 @@
                   <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <li><a class="dropdown-item" href="/report/ages"><font-awesome-icon id="fai-drop" :icon="['fas', 'list-numeric']"/>Ages</a></li>
                     <li><a class="dropdown-item" href="/portfolio/reports"><font-awesome-icon id="fai-drop" :icon="['fas', 'magnifying-glass']"/>Search</a></li>
-                    <li><a class="dropdown-item" href="/portfolio/upload"><font-awesome-icon id="fai-drop" :icon="['fas', 'file-upload']"/>Upload</a></li>
                     <li><a class="dropdown-item" href="/portfolio/consolidated"><font-awesome-icon id="fai-drop" :icon="['fas', 'file-signature']"/>Consolidated</a></li>
                     <li><a class="dropdown-item" href="/validity/report"><font-awesome-icon id="fai-drop" :icon="['fas', 'calendar']"/>Validity</a></li>
                     <li><hr class="dropdown-divider"></li>

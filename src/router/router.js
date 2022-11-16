@@ -8,7 +8,8 @@ import PaymentsReports from '@/views/Payments/Reports.vue'
 import PaymentsUpload from '@/views/Payments/Upload.vue'
 import ReportAges from '@/views/Payments/Ages.vue'
 import PortfolioReports from '@/views/Portfolio/Reports.vue'
-import PortfolioUpload from '@/views/Portfolio/Upload.vue'
+import UploadPayments from '@/views/Portfolio/UploadPayments.vue'
+import UploadBeads from '@/views/Portfolio/UploadBeads.vue'
 import ConsolidatedPortfolio from '@/views/Portfolio/Consolidated.vue'
 import ValidityReport from '@/views/Payments/Validity.vue'
 import Dashboard from '@/views/Dashboard.vue'
@@ -79,9 +80,17 @@ const routes = [
         }
     },
     {         
-        path: '/portfolio/upload',
-        name: 'PortfolioUpload',
-        component: PortfolioUpload,
+        path: '/portfolio/upload/payments',
+        name: 'UploadPayments',
+        component: UploadPayments,
+        meta: {
+            auth: true
+        }
+    },
+    {         
+        path: '/portfolio/upload/beads',
+        name: 'UploadBeads',
+        component: UploadBeads,
         meta: {
             auth: true
         }
