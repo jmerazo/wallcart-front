@@ -54,9 +54,11 @@
                         <th>CUENTA</th>
                         <th>FECHA CUENTA</th>
                         <th>FACTURA</th>
-                        <th>VR TOTAL FRA</th>
                         <th>VR ABONADO</th>
                         <th>FECHA ABONO</th>
+                        <th>VR GLOSA</th>
+                        <th>FECHA GLOSA</th>
+                        <th style="color:brown">ERROR</th>                        
                     </tr>
                 </thead>
                 <tbody>                      
@@ -66,9 +68,11 @@
                         <td>{{pd.cuenta}}</td>
                         <td>{{pd.fecha_cuenta}}</td>
                         <td>{{pd.factura}}</td>
-                        <td>{{pd.valor_total_factura}}</td>
                         <td>{{pd.valor_abonado}}</td>
                         <td>{{pd.fecha_abono}}</td>
+                        <td>{{pd.glosa_aceptada}}</td>
+                        <td>{{pd.fga}}</td>
+                        <td style="color:brown">Excede el saldo</td>
                     </tr>
                 </tbody>
               </table>
@@ -83,9 +87,11 @@
                         <th>CUENTA</th>
                         <th>FECHA CUENTA</th>
                         <th>FACTURA</th>
-                        <th>VR TOTAL FRA</th>
                         <th>VR ABONADO</th>
                         <th>FECHA ABONO</th>
+                        <th>VR GLOSA</th>
+                        <th>FECHA GLOSA</th>
+                        <th>SALDO</th>
                     </tr>
                 </thead>
                 <tbody>                      
@@ -95,9 +101,11 @@
                         <td>{{pd.cuenta}}</td>
                         <td>{{pd.fecha_cuenta}}</td>
                         <td>{{pd.factura}}</td>
-                        <td>{{pd.valor_total_factura}}</td>
                         <td>{{pd.valor_abonado}}</td>
                         <td>{{pd.fecha_abono}}</td>
+                        <td>{{pd.glosa_aceptada}}</td>
+                        <td>{{pd.fga}}</td>
+                        <td>{{pd.saldo}}</td>
                     </tr>
                 </tbody>
               </table>
