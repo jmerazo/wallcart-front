@@ -7,4 +7,5 @@ Sidebar: https://vuejsexamples.com/a-beautiful-sidebar-menu-built-with-vue-js/
 Icons sidebar: https://boxicons.com/?query=alt
 Icons: https://fontawesome.com/search?q=excel&o=r
 Export table: https://github.com/PanJiaChen/vue-element-admin/blob/master/src/vendor/Export2Excel.js
+PDFKit: https://vuejscomponent.com/package?name=pdfkit
 

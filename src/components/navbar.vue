@@ -22,37 +22,48 @@
   
             <div class="collapse navbar-collapse" id="nav-end">
               <ul class="navbar-nav">
-                <li class="nav-item">
-                  <a class="nav-item nav-link btn btn-light" href="/dashboard" id="txt-nav">Home</a>
-                </li>
 
-                <li class="nav-item">
-                  <a class="nav-item nav-link btn btn-light" href="/payments/reports" id="txt-nav">Searchs</a>
-                </li>
-  
-                <li class="nav-item">
-                  <a class="nav-item nav-link btn btn-light" href="/payments/upload" id="txt-nav">Uploads</a>
+                <li class="nav-item" id="li-fixed-home"><a href="/dashboard" id="txt-nav"><font-awesome-icon id="fai-drop" :icon="['fas', 'house']"/>Home</a></li>                
+                <li class="nav-item" id="li-fixed-queries"><a href="/portfolio/reports"><font-awesome-icon id="fai-drop" :icon="['fas', 'magnifying-glass']"/>Queries</a></li>
+
+                <li  class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"><font-awesome-icon id="fai-drop" :icon="['fas', 'file-excel']"/>Reports</a>
+                  <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item" href="/report/ages"><font-awesome-icon id="fai-drop" :icon="['fas', 'list-numeric']"/>Ages</a></li>
+                    <li><a class="dropdown-item" href="/portfolio/consolidated"><font-awesome-icon id="fai-drop" :icon="['fas', 'file-signature']"/>Consolidated</a></li>
+                    <li><a class="dropdown-item" href="/validity/report"><font-awesome-icon id="fai-drop" :icon="['fas', 'calendar']"/>Validity</a></li>
+                  </ul>
                 </li>
 
                 <li  class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"><font-awesome-icon id="fai-drop" :icon="['fas', 'file-upload']"/>Upload</a>
                   <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <li><a class="dropdown-item" href="/portfolio/upload/beads"><font-awesome-icon id="fai-drop" :icon="['fas', 'list-numeric']"/>Beads</a></li>
-                    <li><a class="dropdown-item" href="/portfolio/upload/payments"><font-awesome-icon id="fai-drop" :icon="['fas', 'list-numeric']"/>Payments</a></li>
+                    <li><a class="dropdown-item" href="/portfolio/upload/beads"><font-awesome-icon id="fai-drop" :icon="['fas', 'file-invoice']"/>Beads</a></li>
+                    <li><a class="dropdown-item" href="/portfolio/upload/payments"><font-awesome-icon id="fai-drop" :icon="['fas', 'cash-register']"/>Payments</a></li>
                   </ul>
                 </li>
 
                 <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Portfolio
+                    History
                   </a>
                   <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item font-bold" href="#">Reports</a></li>
+                    <li><hr class="dropdown-divider"></li>
                     <li><a class="dropdown-item" href="/report/ages"><font-awesome-icon id="fai-drop" :icon="['fas', 'list-numeric']"/>Ages</a></li>
-                    <li><a class="dropdown-item" href="/portfolio/reports"><font-awesome-icon id="fai-drop" :icon="['fas', 'magnifying-glass']"/>Search</a></li>
                     <li><a class="dropdown-item" href="/portfolio/consolidated"><font-awesome-icon id="fai-drop" :icon="['fas', 'file-signature']"/>Consolidated</a></li>
                     <li><a class="dropdown-item" href="/validity/report"><font-awesome-icon id="fai-drop" :icon="['fas', 'calendar']"/>Validity</a></li>
+
                     <li><hr class="dropdown-divider"></li>
-                    <li><a class="dropdown-item" href="#">History</a></li>
+                    <li><a class="dropdown-item font-bold" href="#">Queries</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="/payments/reports"><font-awesome-icon id="fai-drop" :icon="['fas', 'magnifying-glass']"/>Searchs</a></li>
+
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item font-bold" href="#">Uploads</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="/payments/upload"><font-awesome-icon id="fai-drop" :icon="['fas', 'file-upload']"/>Uploads</a></li>
                   </ul>
                 </li>
                 
@@ -158,6 +169,16 @@ import axios from 'axios'
     width: 15px;
     height: 15px;
     margin-right: 5px;
+  }
+
+  #li-fixed-queries{
+    margin-top: 10px;
+    margin-right: 3px;
+  }
+
+  #li-fixed-home{
+    margin-top: 8px;
+    margin-right: 12px;
   }
   
   #btncircle{
