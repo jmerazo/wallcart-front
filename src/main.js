@@ -68,7 +68,9 @@ import {
     faFileSignature,
     faFileInvoice,
     faCashRegister,
-    faHouse
+    faHouse,
+    faLayerGroup,
+    faMapLocation
 } from '@fortawesome/free-solid-svg-icons'
 import { 
     faFacebook, 
@@ -136,7 +138,12 @@ library.add(
     faFileSignature,
     faFileInvoice,
     faCashRegister,
-    faHouse
+    faHouse,
+    faIdCard,
+    faSignature,
+    faLayerGroup,
+    faMapLocation,
+    faLocationDot
 )
 
 const settings = {

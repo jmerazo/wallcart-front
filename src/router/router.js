@@ -14,6 +14,7 @@ import ConsolidatedPortfolio from '@/views/Portfolio/Consolidated.vue'
 import ValidityReport from '@/views/Payments/Validity.vue'
 import Dashboard from '@/views/Dashboard.vue'
 import Business from '@/views/Business/ListAll.vue'
+import BusinessUpdate from '@/views/Business/Update.vue'
 
 const routes = [
     {
@@ -124,6 +125,21 @@ const routes = [
         path: '/business',
         name: 'Business',
         component: Business,
+        meta: {
+            auth: true
+        }
+    },
+    {         
+        path: '/business/update/:id',
+        name: 'BusinessUpdate',
+        component: BusinessUpdate,
+        meta: {
+            auth: true
+        }
+    },
+    {         
+        path: '/business/delete/:id',
+        name: 'BusinessDelete',
         meta: {
             auth: true
         }
