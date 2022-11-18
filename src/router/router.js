@@ -13,6 +13,7 @@ import UploadBeads from '@/views/Portfolio/UploadBeads.vue'
 import ConsolidatedPortfolio from '@/views/Portfolio/Consolidated.vue'
 import ValidityReport from '@/views/Payments/Validity.vue'
 import Dashboard from '@/views/Dashboard.vue'
+import Business from '@/views/Business/ListAll.vue'
 
 const routes = [
     {
@@ -115,6 +116,14 @@ const routes = [
         path: '/dashboard',
         name: 'Dashboard',
         component: Dashboard,
+        meta: {
+            auth: true
+        }
+    },
+    {         
+        path: '/business',
+        name: 'Business',
+        component: Business,
         meta: {
             auth: true
         }
