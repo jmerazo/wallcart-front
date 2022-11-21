@@ -1,20 +1,20 @@
 <template>
         <div class="row" id="form-business-gral">
             <div class="col-3" id="form-business-ppal">
-                <h2 id="register-title" class="font-bold text-2xl">Business</h2>
-                <label id="register-subtitle" class="font-semibold text-lg"> Information </label><br>
+                <h2 id="register-title" class="font-bold text-2xl">Contracs</h2>
+                <label id="register-subtitle" class="font-semibold text-lg"> Add new contrac</label><br>
 
                 <div id="form-business-all">
                     <div id="form-business-inputs">
                         <font-awesome-icon id="fai-search" :icon="['fas', 'id-card']" />
+                        <label class="form-label">Número de contrato</label>
+                        <input type="text" v-model="contrato" class="form-control" id="form-business">
+                    </div>
+
+                    <div id="form-business-inputs">
+                        <font-awesome-icon id="fai-search" :icon="['fas', 'id-card']" />
                         <label class="form-label">Nit</label>
                         <input type="text" v-model="nit" class="form-control" id="form-business">
-                    </div>
-                    
-                    <div id="form-business-inputs">
-                        <font-awesome-icon id="fai-search" :icon="['fas', 'signature']" />
-                        <label class="form-label">Nombre</label>
-                        <input type="text" v-model="nombre" class="form-control" id="form-business">
                     </div>
                     
                     <div id="form-business-inputs">
@@ -68,40 +68,6 @@
                     </div>
                 </div>
             </div>
-
-            <div class="col-8" id="form-business-all">
-                <table class="table table table-striped table-hover">
-                    <thead class="table-dark">
-                        <tr id="tr-title">
-                            <th>Nit</th>
-                            <th>Nombre</th>
-                            <th>Regimen</th>
-                            <th>Celular</th>
-                            <th>Correo</th>
-                            <th>Dirección</th>
-                            <th>Ciudad</th>
-                            <th>Departamento</th>
-                            <th>Acciones</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr v-for="s in businessAll" :value="s.id" :key="s.id">
-                            <td>{{ s.nit }}</td>
-                            <td>{{ s.nombre }}</td>
-                            <td>{{ s.cod_reg }}</td>
-                            <td>{{ s.celular }}</td>
-                            <td>{{ s.correo }}</td>
-                            <td>{{ s.direccion }}</td>
-                            <td>{{ s.ciudad }}</td>
-                            <td>{{ s.departamento }}</td>
-                            <td>
-                                <a id="il-cfg" title="Update" type="submit"><router-link :to="{name: 'BusinessUpdate', params: {id : s.id}}"><font-awesome-icon id="fai-list" :icon="['fas', 'user-pen']"/></router-link></a>
-                                <a id="il-cfg" title="Delete" type="submit" @click="businessDelete()"><router-link :to="{name: 'BusinessDelete', params: {id : s.id}}"><font-awesome-icon id="fai-list" :icon="['fas', 'trash']"/></router-link></a>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>                
-            </div>
         </div>
 </template>
 
@@ -110,7 +76,7 @@ import axios from 'axios'
 export default {
     components: {
     },
-    name: "BusinessForm",
+    name: "AddContrac",
     data() {
         return {
             nit : null,

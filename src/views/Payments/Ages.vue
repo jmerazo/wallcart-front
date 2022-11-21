@@ -35,6 +35,9 @@
                 <div class="col-2">
                     <a id="btn-search-report" type="submit" class="btn" @click="agesReport">Generate</a>
                 </div>
+                <div class="col-2">
+                    <a id="btn-search-report" type="submit" class="btn" @click="downloadAgesXLSX">Export</a>
+                </div>
             </div>
            
             <a id="btn-search-export" title="Export report" type="submit" class="btn" @click="expTable"><font-awesome-icon id="fai-export" :icon="['fas', 'file-export']"/></a> 
@@ -119,12 +122,6 @@
 <script>
 import axios from "axios";
 import * as XLSX from 'xlsx/xlsx.mjs';
-import DataTable from 'datatables.net-vue3';
-import Buttons from 'datatables.net-buttons';
-import ButtonsHtml5 from 'datatables.net-buttons/js/buttons.html5';
-
-DataTable.use(Buttons);
-DataTable.use(ButtonsHtml5);
 
 export default {
 components: {
@@ -150,6 +147,20 @@ mounted() {
 computed: {
 },
 methods: {
+    async downloadAgesXLSX(){
+        //await axios.get(`http://localhost:8844/api/utils/export/ages`, this.ages,{
+        //headers: {
+        //    "Content-Type": "application/json",
+        //    "Access-Control-Allow-Origin": "*"
+        //}
+        //})
+        //.then((Response) => {
+        //    console.log('File export: ', Response)
+        //})
+        //.catch((e) => {
+        //    console.log('Error export: ',e)
+        //})
+    },
     expTable(){
         var workbook = XLSX.utils.table_to_book(document.getElementById("tableNone"));
         const filename = `HJMH_REPORT_AGES_TO_${this.dateIn}_DOWNLOAD_${this.dateReport}`;

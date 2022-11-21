@@ -29,7 +29,8 @@
                 <li  class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"><font-awesome-icon id="fai-drop" :icon="['fas', 'file-excel']"/>Utils</a>
                   <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <li><a class="dropdown-item" href="/business"><font-awesome-icon id="fai-drop" :icon="['fas', 'list-numeric']"/>Business</a></li>
+                    <li><a class="dropdown-item" href="/business"><font-awesome-icon id="fai-drop" :icon="['fas', 'house-medical']"/>Business</a></li>
+                    <li><a class="dropdown-item" href="/contracs"><font-awesome-icon id="fai-drop" :icon="['fas', 'file']"/>Contracts</a></li>
                   </ul>
                 </li>
 

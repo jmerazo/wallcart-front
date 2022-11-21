@@ -15,6 +15,9 @@ import ValidityReport from '@/views/Payments/Validity.vue'
 import Dashboard from '@/views/Dashboard.vue'
 import Business from '@/views/Business/ListAll.vue'
 import BusinessUpdate from '@/views/Business/Update.vue'
+import Contracs from '@/views/Contracs/ListAll.vue'
+import ContracsUpdate from '@/views/Contracs/Update.vue'
+import ContracsCreate from '@/views/Contracs/Add.vue'
 
 const routes = [
     {
@@ -140,6 +143,37 @@ const routes = [
     {         
         path: '/business/delete/:id',
         name: 'BusinessDelete',
+        meta: {
+            auth: true
+        }
+    },
+    {         
+        path: '/contracs',
+        name: 'Contracs',
+        component: Contracs,
+        meta: {
+            auth: true
+        }
+    },
+    {         
+        path: '/contracs/create',
+        name: 'ContracsCreate',
+        component: ContracsCreate,
+        meta: {
+            auth: true
+        }
+    },
+    {         
+        path: '/contracs/update/:id',
+        name: 'ContracsUpdate',
+        component: ContracsUpdate,
+        meta: {
+            auth: true
+        }
+    },
+    {         
+        path: '/contracs/delete/:id',
+        name: 'ContracsDelete',
         meta: {
             auth: true
         }
