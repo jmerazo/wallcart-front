@@ -13,11 +13,12 @@ import UploadBeads from '@/views/Portfolio/UploadBeads.vue'
 import ConsolidatedPortfolio from '@/views/Portfolio/Consolidated.vue'
 import ValidityReport from '@/views/Payments/Validity.vue'
 import Dashboard from '@/views/Dashboard.vue'
-import Business from '@/views/Business/ListAll.vue'
+import Business from '@/views/Business/Business.vue'
+import BusinessAll from '@/views/Business/ListAll.vue'
 import BusinessUpdate from '@/views/Business/Update.vue'
-import Contracs from '@/views/Contracs/ListAll.vue'
+import Contracs from '@/views/Contracs/Contracs.vue'
 import ContracsUpdate from '@/views/Contracs/Update.vue'
-import ContracsCreate from '@/views/Contracs/Add.vue'
+import ContracsAll from '@/views/Contracs/ListAll.vue'
 
 const routes = [
     {
@@ -133,6 +134,14 @@ const routes = [
         }
     },
     {         
+        path: '/business/all',
+        name: 'BusinessAll',
+        component: BusinessAll,
+        meta: {
+            auth: true
+        }
+    },
+    {         
         path: '/business/update/:id',
         name: 'BusinessUpdate',
         component: BusinessUpdate,
@@ -156,9 +165,9 @@ const routes = [
         }
     },
     {         
-        path: '/contracs/create',
-        name: 'ContracsCreate',
-        component: ContracsCreate,
+        path: '/contracs/all',
+        name: 'ContracsAll',
+        component: ContracsAll,
         meta: {
             auth: true
         }
