@@ -5,7 +5,7 @@
     <div class="row" id="form-business-gral">
         <form class="col-3" id="form-business-ppal" @submit.prevent="addBusiness()">
             <h2 id="register-title" class="font-bold text-2xl">Business</h2>
-            <label id="register-subtitle" class="font-semibold text-lg"> Information </label><br>
+            <label id="register-subtitle" class="font-semibold text-lg"> Add new </label><br>
 
             <div id="form-business-all">
                 <div id="form-business-inputs">

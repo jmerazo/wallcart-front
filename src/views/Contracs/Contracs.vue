@@ -1,80 +1,70 @@
 <template>
     <div>
-        <a id="btn-contracs-list" href="/contracs/all" class="btn" type="button" title="List Contracs"><font-awesome-icon id="fai-business-list" :icon="['fas', 'fas', 'file']"/></a>
+        <a id="btn-contracs-list" href="/contracs/all" class="btn" type="button" title="List Contracs"><font-awesome-icon id="fai-business-list" :icon="['fas', 'file']"/></a>
     </div>
-    <div class="row" id="form-business-gral">
-        <div class="col-3" id="form-business-ppal">
+    <div class="row" id="form-contracs-gral">
+        <div class="col-3" id="form-contracs-ppal">
             <h2 id="register-title" class="font-bold text-2xl">Contracs</h2>
             <label id="register-subtitle" class="font-semibold text-lg"> Add new contrac</label><br>
 
-            <div id="form-business-all">
-                <div id="form-business-inputs">
-                    <font-awesome-icon id="fai-search" :icon="['fas', 'id-card']" />
+            <div id="form-contracs-all">
+                <div id="form-contracs-inputs">
+                    <font-awesome-icon id="fai-search" :icon="['fas', 'sort-numeric-asc']" />
                     <label class="form-label">Número de contrato</label>
-                    <input type="text" v-model="contrato" class="form-control" id="form-business">
+                    <input type="text" v-model="num_cto" class="form-control" id="form-contracs">
                 </div>
 
-                <div id="form-business-inputs">
+                <div id="form-contracs-inputs">
                     <font-awesome-icon id="fai-search" :icon="['fas', 'id-card']" />
                     <label class="form-label">Nit</label>
-                    <input type="text" v-model="nit" class="form-control" id="form-business">
+                    <input type="text" v-model="nit" class="form-control" id="form-contracs">
                 </div>
                 
-                <div id="form-business-inputs">
-                    <font-awesome-icon id="fai-search" :icon="['fas', 'layer-group']"/>
-                    <label class="form-label">Regimen</label>
-                    <select v-model="regimen" @change="listCities()" class="form-control" id="form-business">
-                        <option value="" disabled selected>Select an regime...</option>
-                        <!--option v-show="departamento" :value="departamento">{{this.departmentSearch}}</option-->
-                        <option v-for="reg in regimens" :value="reg" :key="reg.cod_reg">{{reg.cod_reg + " - " + reg.nom_reg}}</option>
-                    </select>
+                <div id="form-contracs-inputs">
+                    <font-awesome-icon id="fai-search" :icon="['fas', 'crutch']"/>
+                    <label class="form-label">Modalidad</label>
+                    <input type="text" v-model="modalidad_cto" class="form-control" id="form-contracs">
                 </div>
 
-                <div id="form-business-inputs">
-                    <font-awesome-icon id="fai-search" :icon="['fas', 'mobile']" />
-                    <label class="form-label">Celular</label>
-                    <input type="number" v-model="celular" class="form-control" id="form-business">
+                <div id="form-contracs-inputs">
+                    <font-awesome-icon id="fai-log" :icon="['fas', 'barcode']"/>
+                    <label class="form-label">Código servicio</label>
+                    <input type="text" v-model="cod_serv_cto" class="form-control" id="form-contracs">
+                </div>
+
+                <div id="form-contracs-inputs">
+                    <font-awesome-icon id="fai-search" :icon="['fas', 'turn-up']" />
+                    <label class="form-label">Nivel</label>
+                    <input type="text" v-model="nivel_cto" class="form-control" id="form-contracs">
                 </div>                 
 
-                <div id="form-business-inputs">
-                    <font-awesome-icon id="fai-search" :icon="['fas', 'envelope']" />
-                    <label class="form-label">Correo</label>
-                    <input type="email" v-model="correo" class="form-control" id="form-business">
+                <div id="form-contracs-inputs">
+                    <font-awesome-icon id="fai-search" :icon="['fas', 'calendar']" />
+                    <label class="form-label">Fecha inicio</label>
+                    <input type="date" v-model="fec_ini_cto" class="form-control" id="form-contracs">
                 </div>
                 
-                <div id="form-business-inputs">
-                    <font-awesome-icon id="fai-search" :icon="['fas', 'map-location']" />
-                    <label class="form-label">Dirección</label>
-                    <input type="text" v-model="direccion" class="form-control" id="form-business">
+                <div id="form-contracs-inputs">
+                    <font-awesome-icon id="fai-search" :icon="['fas', 'calendar']" />
+                    <label class="form-label">Fecha fin</label>
+                    <input type="date" v-model="fec_fin_cto" class="form-control" id="form-contracs">
                 </div>
 
-                <div id="form-business-inputs">
-                    <font-awesome-icon id="fai-log" :icon="['fas', 'location-dot']"/><label class="form-label">Departments</label>
-                    <select v-model="departamento" @change="listCities()" class="form-control" id="form-business">
-                        <option value="" disabled selected>Select an department...</option>
-                        <!--option v-show="departamento" :value="departamento">{{this.departmentSearch}}</option-->
-                        <option v-for="department in departments" :value="department" :key="department.code">{{department.name}}</option>
-                    </select>
-                </div>
-
-                <div id="form-business-inputs">
-                    <font-awesome-icon id="fai-log" :icon="['fas', 'location-pin']"/><label class="form-label">Cities</label>
-                    <select v-model="ciudad" class="form-control" id="form-business">
-                    <option value="" disabled selected>Select an city...</option>
-                    <!--option v-show="ciudad" :value="ciudad">{{this.citySearch}}</option-->
-                    <option v-for="city in cities" :value="city.code" :key="city.code">{{city.name}}</option>
-                    </select>
+                <div id="form-contracs-inputs">
+                    <font-awesome-icon id="fai-log" :icon="['fas', 'money-bill']"/>
+                    <label class="form-label">Valor del contrato</label>
+                    <input type="number" v-model="valor_cto" class="form-control" id="form-contracs">
                 </div>
                 
                 <div id="btn-content">
-                    <a type="submit" class="btn" id="btn-business-create" @click="addBusiness">Create</a>
+                    <a type="submit" class="btn" id="btn-business-create" @click="addContracs">Create</a>
                 </div>
             </div>
         </div>
 
-        <div class="col-8" id="form-business-all">
-            <div id="form-search-business" class="row">
-                <div class="col-2" id="search-business">
+        <div class="col-8" id="form-contracs-all">
+            <div id="form-search-contracs" class="row">
+                <div class="col-2" id="search-contracs">
                     <font-awesome-icon id="fai-search" :icon="['fas', 'filter']"/><label class="form-label">Filter by: </label>
                     <select v-model="filter" id="type" class="form-control">
                         <option value="" disabled selected>Select option...</option>
@@ -83,7 +73,7 @@
                     </select>
                 </div>
 
-                <div class="col-2" id="search-business">
+                <div class="col-2" id="search-contracs">
                     <font-awesome-icon id="fai-search" :icon="['fas', 'list-ol']" />
                     <label class="form-label">Nit / Contrato</label>
                     <input v-on:keyup="searchBusiness()" v-model="params" type="text" class="form-control" placeholder="901123456-1">
@@ -135,31 +125,65 @@ export default {
     name: "AddContrac",
     data() {
         return {
+            num_cto : null,
             nit : null,
-            nombre : null,
-            regimen : null,
-            celular : null,
-            correo : null,
-            direccion : null,
-            ciudad : null,
-            departamento : null,
-            cities : [],
-            codeDepartment : null,
-            codeCity : null,
-            departments : [],
-            regimens : [],
-            busineDelete : null,
+            modalidad_cto : null,
+            nivel_cto : null,
+            fec_ini_cto : null,
+            fec_fin_cto : null,
+            valor_cto : null,
+            cod_serv_cto : null,
+            contrac_delete : "",
             contracsSearch : []
         };
     },
     mounted() {
-        this.listBusinessAll();
-        this.listDepartments();
-        this.listRegimenAll();
     },
     computed: {       
     },
     methods: {
+        async addContracs(){
+            console.log(this.year)
+            const contracsData = JSON.stringify({
+                num_cto : this.num_cto,
+                nit : this.nit,
+                modalidad_cto : this.modalidad_cto,
+                nivel_cto : this.nivel_cto,
+                fec_ini_cto : this.fec_ini_cto,
+                fec_fin_cto : this.fec_fin_cto,
+                valor_cto : this.valor_cto,
+                cod_serv_cto : this.cod_serv_cto
+            })
+            await axios.post(`http://localhost:8844/api/contracs/add`, contracsData, {
+                headers: {
+                "Content-Type": "application/json",
+                "Access-Control-Allow-Origin": "*"
+                }
+            })
+            .then((Response) => {
+                console.log(Response)
+                this.$toast.success(`Business Create Successfull`, {
+                position: 'top-right',
+                duration: 8000
+                })
+                this.num_cto = "";
+                this.nit = "";
+                this.modalidad_cto = "";
+                this.nivel_cto = "";
+                this.fec_ini_cto = "";
+                this.fec_fin_cto = "";
+                this.valor_cto = "";
+                this.cod_serv_cto = "";
+                this.$router.push({name: 'Contracs'});                
+            })
+            .catch((e) => {
+                console.log(e)
+                this.$toast.danger(`Error, not add`, {
+                  position: 'top-right',
+                  duration: 8000
+                })
+            })
+        },
         async searchContracs(){
             await axios.get(`http://localhost:8844/api/contracs/filter/${this.filter}/${this.params}`, {
                 headers: {
@@ -169,21 +193,6 @@ export default {
             })
             .then((Response) => {
                 this.contracsSearch = Response.data;
-            })
-            .catch((e) => {
-                console.log(e)
-            })
-        },
-        async listBusinessAll(){
-            await axios.get(`http://localhost:8844/api/business/all`, {
-                headers: {
-                "Content-Type": "application/json",
-                "Access-Control-Allow-Origin": "*"
-                }
-            })
-            .then((Response) => {
-                console.log('Business: ', Response.data)
-                this.businessAll = Response.data;
             })
             .catch((e) => {
                 console.log(e)
@@ -205,75 +214,40 @@ export default {
             .catch((e) => {
                 console.log(`Error deleting ${this.busineDelete}`,e)
             })
-        },
-        async listRegimenAll(){
-            await axios.get(`http://localhost:8844/api/utils/regimen`, {
-                headers: {
-                "Content-Type": "application/json",
-                "Access-Control-Allow-Origin": "*"
-                }
-            })
-            .then((Response) => {
-                console.log('Business: ', Response.data)
-                this.regimens = Response.data;
-            })
-            .catch((e) => {
-                console.log(e)
-            })
-        },
-        async listDepartments(){
-            await axios.get(`http://localhost:8844/api/utils/departments`, {
-                headers: {
-                "Content-Type": "application/json",
-                "Access-Control-Allow-Origin": "*"
-                }
-            })
-            .then((Response) => {
-                console.log('Business: ', Response.data)
-                this.departments = Response.data;
-            })
-            .catch((e) => {
-                console.log(e)
-            })
-        },
-        async listCities(){
-            console.log('Department code: ', this.departamento.code)
-            await axios.get(`http://localhost:8844/api/utils/cities/${this.departamento.code}`, {
-                headers: {
-                "Content-Type": "application/json",
-                "Access-Control-Allow-Origin": "*"
-                }
-            })
-            .then((Response) => {
-                console.log('Cities: ', Response.data)
-                this.cities = Response.data;
-            })
-            .catch((e) => {
-                console.log(e)
-            })
         }
     }
 };
 </script>
 
 <style>
-#form-business-gral{
+#btn-contracs-list{
+    color: white;
+    background-color: #ab0d2f;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+#form-contracs-gral{
     display: flex;
     width: 99%;
 }
 
-#form-business-ppal{
+#form-contracs-ppal{
     justify-content: center;
     justify-items: center;
     align-items: center;
     text-align: center;
 }
 
-#form-business{
+#form-contracs{
     width: 300px;
 }
 
-#form-business-all{
+#search-contracs{
+    text-align: left;
+}
+
+#form-contracs-all{
     align-items: center;
     justify-content: center;
     text-align: center;
@@ -281,11 +255,17 @@ export default {
     top: 0;
 }
 
-#form-business-inputs{
+#form-search-contracs{
+    margin-bottom: 20px;
+    justify-content: left;
+    top: 0px;
+}
+
+#form-contracs-inputs{
     text-align: left;
 }
 
-#btn-business-create{
+#btn-contracs-create{
     background-color: #ab0d2f;
     color: white;
 }

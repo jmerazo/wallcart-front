@@ -71,7 +71,12 @@ import {
     faHouse,
     faLayerGroup,
     faMapLocation,
-    faHouseMedical
+    faHouseMedical,
+    faSortNumericAsc,
+    faCrutch,
+    faBarcode,
+    faTurnUp,
+    faMoneyBill
 } from '@fortawesome/free-solid-svg-icons'
 import { 
     faFacebook, 
@@ -145,7 +150,12 @@ library.add(
     faLayerGroup,
     faMapLocation,
     faLocationDot,
-    faHouseMedical
+    faHouseMedical,
+    faSortNumericAsc,
+    faCrutch,
+    faBarcode,
+    faTurnUp,
+    faMoneyBill
 )
 
 const settings = {

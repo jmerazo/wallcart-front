@@ -1,9 +1,11 @@
 <template>
-    <div>
-        <a id="btn-back-contracs-list-top" href="/contracs/update" class="btn" type="button"><font-awesome-icon id="fai-log-update-password" :icon="['fas', 'chevron-left']"/></a>
-        <a id="btn-register-contracs-top" href="/contracs/create" class="btn" type="button"><font-awesome-icon id="fai-user-list" :icon="['fas', 'user-plus']"/></a>
+    <h2 id="register-title" class="font-bold text-2xl">Contracs</h2>
+    <label id="register-subtitle" class="font-semibold text-lg"> Information all </label><br>
+
+    <div id="div-btn-back">
+        <a id="btn-back-business" href="/contracs" class="btn" type="button" title="Back to business"><font-awesome-icon id="fai-business-list" :icon="['fas', 'chevron-left']"/></a>
     </div>
-    <div class="col-12" id="form-business-all">
+    <div class="col-12" id="form-contracs-list-all">
         <table class="table table table-striped table-hover">
             <thead class="table-dark">
                 <tr id="tr-title">
@@ -20,7 +22,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr v-for="s in contracsAll" :value="s.id" :key="s.id">
+                <tr v-for="s in dataPaginate" :value="s.id" :key="s.id">
                     <td>{{ s.num_cto }}</td>
                     <td>{{ s.nit }}</td>
                     <td>{{ s.nombre }}</td>
@@ -38,6 +40,13 @@
             </tbody>
         </table>                
     </div>
+    <nav aria-label="Page navigation example" id="pagination-business">
+        <ul class="pagination">
+            <li class="page-item" @click="getPreviousPage"><a class="page-link" href="#">Previous</a></li>
+            <li v-for="page in totalPages()" :key="page" @click="getDataPages(page)" class="page-item"><a class="page-link" href="#">{{page}}</a></li>
+            <li class="page-item" @click="getNextPage"><a class="page-link" href="#">Next</a></li>
+        </ul>
+    </nav> 
 </template>
 
 <script>
@@ -63,6 +72,9 @@ export default {
             regimens : [],
             contracsAll : [],
             busineDelete : null,
+            itemsPerPage: 50,
+            dataPaginate: [],
+            actualPage: 1
         };
     },
     mounted() {
@@ -73,6 +85,28 @@ export default {
     computed: {       
     },
     methods: {
+        totalPages() {
+            return Math.ceil(this.contracsAll.length / this.itemsPerPage)
+        },
+        getDataPages(numPage){
+        this.actualPage = numPage;
+        this.dataPaginate = [];
+        let ini = (numPage * this.itemsPerPage) - this.itemsPerPage;
+        let end = (numPage * this.itemsPerPage);
+        this.dataPaginate = this.contracsAll.slice(ini, end);
+        },
+        getPreviousPage(){
+        if(this.actualPage > 1){
+            this.actualPage--;
+        }
+        this.getDataPages(this.actualPage)
+        },
+        getNextPage(){
+        if(this.actualPage < this.totalPages){
+            this.actualPage++;
+        }
+        this.getDataPages(this.actualPage)
+        },
         async addBusiness(){
             console.log(this.year)
             const businessData = JSON.stringify({
@@ -117,6 +151,7 @@ export default {
             .then((Response) => {
                 console.log('Contracs all: ',Response)
                 this.contracsAll = Response.data;
+                this.getDataPages(1)
             })
             .catch((e) => {
                 console.log(e)
@@ -224,12 +259,13 @@ export default {
     width: 300px;
 }
 
-#form-business-all{
+#form-contracs-list-all{
     align-items: center;
     justify-content: center;
     text-align: center;
     margin: 20px;
     top: 0;
+    width: 98%;
 }
 
 #form-business-inputs{
