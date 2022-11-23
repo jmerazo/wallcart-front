@@ -5,31 +5,6 @@
                 <div class="col-4" id="align-text-fai">
                     <font-awesome-icon id="fai-search" :icon="['fas', 'calendar']"/><label class="form-label">Select date</label><br>
                     <input v-model="dateIn" type="date"><br>
-                    <!--v-date-picker class="inline-block h-full" v-model="date" :masks="masks" mode='date' data="YYYY-MM-DD" :format="YYYY-MM-DD">
-                        <template v-slot="{ inputValue, togglePopover }">
-                            <div class="flex items-center">
-                                <button
-                                    class="p-2 bg-blue-100 border border-blue-200 hover:bg-blue-200 text-blue-600 rounded-l focus:bg-blue-500 focus:text-white focus:border-blue-500 focus:outline-none"
-                                    @click="togglePopover()"
-                                >
-                                    <svg
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        viewBox="0 0 20 20"
-                                        class="w-4 h-4 fill-current"
-                                    >
-                                        <path
-                                            d="M1 4c0-1.1.9-2 2-2h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V4zm2 2v12h14V6H3zm2-6h2v2H5V0zm8 0h2v2h-2V0zM5 9h2v2H5V9zm0 4h2v2H5v-2zm4-4h2v2H9V9zm0 4h2v2H9v-2zm4-4h2v2h-2V9zm0 4h2v2h-2v-2z"
-                                        ></path>
-                                    </svg>
-                                </button>
-                                <input
-                                :value="inputValue"
-                                class="bg-white text-gray-700 w-full py-1 px-2 appearance-none border rounded-r focus:outline-none focus:border-blue-500"
-                                readonly
-                                />
-                            </div>
-                        </template>
-                    </v-date-picker-->
                 </div>
 
                 <div class="col-2">
@@ -175,55 +150,6 @@ methods: {
         //], { origin: "E1" });
         XLSX.writeFile(workbook, `${filename}.xlsx`);
     },
-    generateArray(table) {
-        var out = [];
-        var rows = table.querySelectorAll('tr');
-        var ranges = [];
-        for (var R = 0; R < rows.length; ++R) {
-            var outRow = [];
-            var row = rows[R];
-            var columns = row.querySelectorAll('td');
-            for (var C = 0; C < columns.length; ++C) {
-            var cell = columns[C];
-            var colspan = cell.getAttribute('colspan');
-            var rowspan = cell.getAttribute('rowspan');
-            var cellValue = cell.innerText;
-            if (cellValue !== "" && cellValue == +cellValue) cellValue = +cellValue;
-
-            //Skip ranges
-            ranges.forEach(function (range) {
-                if (R >= range.s.r && R <= range.e.r && outRow.length >= range.s.c && outRow.length <= range.e.c) {
-                for (var i = 0; i <= range.e.c - range.s.c; ++i) outRow.push(null);
-                }
-            });
-
-            //Handle Row Span
-            if (rowspan || colspan) {
-                rowspan = rowspan || 1;
-                colspan = colspan || 1;
-                ranges.push({
-                s: {
-                    r: R,
-                    c: outRow.length
-                },
-                e: {
-                    r: R + rowspan - 1,
-                    c: outRow.length + colspan - 1
-                }
-                });
-            }
-
-            //Handle Value
-            outRow.push(cellValue !== "" ? cellValue : null);
-
-            //Handle Colspan
-            if (colspan)
-                for (var k = 0; k < colspan - 1; ++k) outRow.push(null);
-            }
-            out.push(outRow);
-        }
-        return [out, ranges];
-    },
     totalPages() {
       return Math.ceil(this.ages.length / this.itemsPerPage)
     },
@@ -255,7 +181,7 @@ methods: {
         XLSX.writeFile(workbook, `${filename}.xlsx`);
     },
     async agesReport() {
-        await axios.get(`http://localhost:8844/api/report/ages/${this.dateIn}`, {
+        await axios.get(`http://localhost:8844/api/report/ages/new/${this.dateIn}`, {
         headers: {
             "Content-Type": "application/json",
             "Access-Control-Allow-Origin": "*"

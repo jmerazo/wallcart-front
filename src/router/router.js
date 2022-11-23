@@ -19,6 +19,8 @@ import BusinessUpdate from '@/views/Business/Update.vue'
 import Contracs from '@/views/Contracs/Contracs.vue'
 import ContracsUpdate from '@/views/Contracs/Update.vue'
 import ContracsAll from '@/views/Contracs/ListAll.vue'
+import ReportAgesNew from '@/views/Payments/AgesNew.vue'
+import ValidityReportNew from '@/views/Payments/ValidityNew.vue'
 
 const routes = [
     {
@@ -78,6 +80,14 @@ const routes = [
         }
     },
     {         
+        path: '/report/ages/new',
+        name: 'ReportAgesNew',
+        component: ReportAgesNew,
+        meta: {
+            auth: false
+        }
+    },
+    {         
         path: '/portfolio/reports',
         name: 'PortfolioReports',
         component: PortfolioReports,
@@ -113,6 +123,14 @@ const routes = [
         path: '/validity/report',
         name: 'ValidityReport',
         component: ValidityReport,
+        meta: {
+            auth: false
+        }
+    },
+    {         
+        path: '/validity/report/new',
+        name: 'ValidityReportNew',
+        component: ValidityReportNew,
         meta: {
             auth: false
         }

@@ -3,7 +3,7 @@
         <a id="btn-business-list" href="/business/all" class="btn" type="button" title="List Business"><font-awesome-icon id="fai-business-list" :icon="['fas', 'house-medical']"/></a>
     </div>
     <div class="row" id="form-business-gral">
-        <form class="col-3" id="form-business-ppal" @submit.prevent="addBusiness()">
+        <form class="col-3" id="form-business-ppal">
             <h2 id="register-title" class="font-bold text-2xl">Business</h2>
             <label id="register-subtitle" class="font-semibold text-lg"> Add new </label><br>
 
@@ -26,7 +26,7 @@
                     <select v-model="regimen" @change="listCities()" class="form-control" id="form-business">
                         <option value="" disabled selected>Select an regime...</option>
                         <!--option v-show="departamento" :value="departamento">{{this.departmentSearch}}</option-->
-                        <option v-for="reg in regimens" :value="reg" :key="reg.cod_reg">{{reg.cod_reg + " - " + reg.nom_reg}}</option>
+                        <option v-for="reg in regimens" :value="reg.cod_reg" :key="reg.cod_reg">{{reg.cod_reg + " - " + reg.nom_reg}}</option>
                     </select>
                 </div>
 
@@ -53,7 +53,7 @@
                     <select v-model="departamento" @change="listCities()" class="form-control" id="form-business">
                         <option value="" disabled selected>Select an department...</option>
                         <!--option v-show="departamento" :value="departamento">{{this.departmentSearch}}</option-->
-                        <option v-for="department in departments" :value="department" :key="department.code">{{department.name}}</option>
+                        <option v-for="department in departments" :value="department.code" :key="department.code">{{department.name}}</option>
                     </select>
                 </div>
 
@@ -67,7 +67,7 @@
                 </div>
                 
                 <div id="btn-content">
-                    <a type="submit" class="btn" id="btn-business-create">Create</a>
+                    <a type="submit" class="btn" id="btn-business-create" @click.prevent="addBusiness()">Create</a>
                 </div>
             </div>
         </form>
@@ -193,19 +193,28 @@ export default {
             })
             .then((Response) => {
                 console.log(Response)
-                this.$toast.success(`Business Create Successfull`, {
-                position: 'top-right',
-                duration: 8000
-                })
-                this.nit = "";
-                this.nombre = "";
-                this.regimen = "";
-                this.celular = "";
-                this.correo = "";
-                this.direccion = "";
-                this.ciudad = "";
-                this.departamento = "";
-                this.$router.push({name: 'Business'});                
+                if(Response.data.message == `Business ${this.nombre} with nit ${this.nit} Already exits`){
+                    this.$toast.info(`${Response.data.message}`, {
+                    position: 'top-right',
+                    duration: 8000
+                    })
+                }
+
+                if(Response.data.message != `Business ${this.nombre} with nit ${this.nit} Already exits`){
+                    this.$toast.success(`Business ${Response.data.nombre} add Successfull`, {
+                    position: 'top-right',
+                    duration: 8000
+                    })
+                    this.nit = "";
+                    this.nombre = "";
+                    this.regimen = "";
+                    this.celular = "";
+                    this.correo = "";
+                    this.direccion = "";
+                    this.ciudad = "";
+                    this.departamento = "";
+                    this.$router.push({name: 'Business'}); 
+                }              
             })
             .catch((e) => {
                 console.log(e)
@@ -263,8 +272,8 @@ export default {
             })
         },
         async listCities(){
-            console.log('Department code: ', this.departamento.code)
-            await axios.get(`http://localhost:8844/api/utils/cities/${this.departamento.code}`, {
+            console.log('Department code: ', this.departamento)
+            await axios.get(`http://localhost:8844/api/utils/cities/${this.departamento}`, {
                 headers: {
                 "Content-Type": "application/json",
                 "Access-Control-Allow-Origin": "*"

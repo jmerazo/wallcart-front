@@ -37,9 +37,9 @@
                 <li  class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"><font-awesome-icon id="fai-drop" :icon="['fas', 'file-excel']"/>Reports</a>
                   <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <li><a class="dropdown-item" href="/report/ages"><font-awesome-icon id="fai-drop" :icon="['fas', 'list-numeric']"/>Ages</a></li>
+                    <li><a class="dropdown-item" href="/report/ages/new"><font-awesome-icon id="fai-drop" :icon="['fas', 'list-numeric']"/>Ages</a></li>
                     <li><a class="dropdown-item" href="/portfolio/consolidated"><font-awesome-icon id="fai-drop" :icon="['fas', 'file-signature']"/>Consolidated</a></li>
-                    <li><a class="dropdown-item" href="/validity/report"><font-awesome-icon id="fai-drop" :icon="['fas', 'calendar']"/>Validity</a></li>
+                    <li><a class="dropdown-item" href="/validity/report/new"><font-awesome-icon id="fai-drop" :icon="['fas', 'calendar']"/>Validity</a></li>
                   </ul>
                 </li>
 
@@ -162,7 +162,7 @@ import axios from 'axios'
     width: 100%;
     margin-left: 30px;
     margin-right: 30px;
-    background-color: #e2cefc;
+    background-color: #eeeeee;
   }
   
   #fai-log{
