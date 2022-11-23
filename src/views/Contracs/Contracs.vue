@@ -76,7 +76,7 @@
                 <div class="col-2" id="search-contracs">
                     <font-awesome-icon id="fai-search" :icon="['fas', 'list-ol']" />
                     <label class="form-label">Nit / Contrato</label>
-                    <input v-on:keyup="searchBusiness()" v-model="params" type="text" class="form-control" placeholder="901123456-1">
+                    <input v-on:keyup="searchContracs()" v-model="params" type="text" class="form-control" placeholder="901123456-1">
                 </div>
             </div>                
 
@@ -134,7 +134,9 @@ export default {
             valor_cto : null,
             cod_serv_cto : null,
             contrac_delete : "",
-            contracsSearch : []
+            contracsSearch : [],
+            params : "",
+            filter : ""
         };
     },
     mounted() {
@@ -154,6 +156,7 @@ export default {
                 valor_cto : this.valor_cto,
                 cod_serv_cto : this.cod_serv_cto
             })
+
             await axios.post(`http://localhost:8844/api/contracs/add`, contracsData, {
                 headers: {
                 "Content-Type": "application/json",
@@ -161,8 +164,15 @@ export default {
                 }
             })
             .then((Response) => {
+                console.log('Response data: ', Response)
+                if(Response.data.message == `Contract ${this.num_cto} already exits`){
+                    this.$toast.info(`Contract ${this.num_cto} already exits`, {
+                    position: 'top-right',
+                    duration: 8000
+                    })
+                }
                 console.log(Response)
-                this.$toast.success(`Business Create Successfull`, {
+                this.$toast.success(`Contrac ${Response.data.num_cto} add Successfull`, {
                 position: 'top-right',
                 duration: 8000
                 })
@@ -174,11 +184,11 @@ export default {
                 this.fec_fin_cto = "";
                 this.valor_cto = "";
                 this.cod_serv_cto = "";
-                this.$router.push({name: 'Contracs'});                
+                this.$router.push({name: 'Contracs'});             
             })
             .catch((e) => {
                 console.log(e)
-                this.$toast.danger(`Error, not add`, {
+                this.$toast.warning(`Error, not add`, {
                   position: 'top-right',
                   duration: 8000
                 })
