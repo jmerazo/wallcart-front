@@ -149,6 +149,7 @@ computed: {
 methods: {
     async downloadAgesXLSX(){
         let dataToExport = this.ages;
+
         await axios.post(`http://localhost:8844/api/utils/export/ages`, dataToExport,{
         headers: {
             "Content-Type": "application/json",
@@ -262,6 +263,7 @@ methods: {
         }
         })
         .then((Response) => {
+            console.log('Ages: ',Response)
             this.ages = Response.data;
             this.getDataPages(1)
         });
