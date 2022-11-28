@@ -41,6 +41,8 @@
             </div>
            
             <a id="btn-search-export" title="Export report" type="submit" class="btn" @click="expTable"><font-awesome-icon id="fai-export" :icon="['fas', 'file-export']"/></a> 
+            <a id="btn-search-export" title="Export report" type="submit" class="btn" @click="downloadAgesPDF"><font-awesome-icon id="fai-export-pdf" :icon="['fas', 'file-pdf']"/></a> 
+
             <div class="row" id="form-label-input">
                 <img src="@/assets/resources/logoese.png" alt="Log ESE HJMH" id="img-report-ages">
                 <h2 id="register-title" class="font-bold text-2xl">E.S.E Hospital José María Hernández</h2>
@@ -148,12 +150,36 @@ computed: {
 },
 methods: {
     async downloadAgesXLSX(){
-        let dataToExport = this.ages;
+        let dataToExport = {
+            data : this.ages
+        };
+        
 
-        await axios.post(`http://localhost:8844/api/utils/export/ages`, dataToExport,{
+        await axios.get(`http://localhost:8844/api/utils/export/ages`, dataToExport,{
         headers: {
             "Content-Type": "application/json",
-            "Access-Control-Allow-Origin": "*"
+            "Access-Control-Allow-Origin": "*",
+           " Content-Disposition": "form-data; name=fieldName; filename=report_ages_hjmh.xlsx"
+        }
+        })
+        .then((Response) => {
+            console.log('File export: ', Response)
+        })
+        .catch((e) => {
+            console.log('Error export: ',e)
+        })
+    },
+    async downloadAgesPDF(){
+        let dataToExport = {
+            data : this.ages
+        };
+        
+
+        await axios.get(`http://localhost:8844/api/utils/export/ages/pdf`, dataToExport,{
+        headers: {
+            "Content-Type": "application/json",
+            "Access-Control-Allow-Origin": "*",
+           " Content-Disposition": "form-data; name=fieldName; filename=report_ages_hjmh.xlsx"
         }
         })
         .then((Response) => {
@@ -304,6 +330,13 @@ methods: {
     height: 25px;
     width: 25px;
     color: #07a355;
+}
+
+#fai-export-pdf{
+    margin-right: 5px;
+    height: 25px;
+    width: 25px;
+    color: #ab0d2f;
 }
 
 #fai-search{
