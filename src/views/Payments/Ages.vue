@@ -154,12 +154,11 @@ methods: {
             data : this.ages
         };
         
-
+        console.log(dataToExport)
         await axios.get(`http://localhost:8844/api/utils/export/ages`, dataToExport,{
         headers: {
             "Content-Type": "application/json",
-            "Access-Control-Allow-Origin": "*",
-           " Content-Disposition": "form-data; name=fieldName; filename=report_ages_hjmh.xlsx"
+            "Access-Control-Allow-Origin": "*"
         }
         })
         .then((Response) => {
@@ -177,9 +176,8 @@ methods: {
 
         await axios.get(`http://localhost:8844/api/utils/export/ages/pdf`, dataToExport,{
         headers: {
-            "Content-Type": "application/json",
-            "Access-Control-Allow-Origin": "*",
-           " Content-Disposition": "form-data; name=fieldName; filename=report_ages_hjmh.xlsx"
+            "Content-Type": "multipart/form-data;boundary=boundary",
+            "Access-Control-Allow-Origin": "*"
         }
         })
         .then((Response) => {
