@@ -35,12 +35,12 @@
                 <div class="col-2">
                     <a id="btn-search-report" type="submit" class="btn" @click="agesReport">Generate</a>
                 </div>
-                <div class="col-2">
+                <!--div class="col-2">
                     <a id="btn-search-report" type="submit" class="btn" @click="downloadAgesXLSX">Export</a>
-                </div>
+                </div-->
             </div>
            
-            <a id="btn-search-export" title="Export report" type="submit" class="btn" @click="expTable"><font-awesome-icon id="fai-export" :icon="['fas', 'file-export']"/></a> 
+            <a id="btn-search-export" title="Export report" type="submit" class="btn" @click="downloadAgesXLSX"><font-awesome-icon id="fai-export" :icon="['fas', 'file-export']"/></a> 
             <a id="btn-search-export" title="Export report" type="submit" class="btn" @click="downloadAgesPDF"><font-awesome-icon id="fai-export-pdf" :icon="['fas', 'file-pdf']"/></a> 
 
             <div class="row" id="form-label-input">
@@ -154,15 +154,22 @@ methods: {
             data : this.ages
         };
         
-        console.log(dataToExport)
-        await axios.get(`http://localhost:8844/api/utils/export/ages`, dataToExport,{
-        headers: {
-            "Content-Type": "application/json",
-            "Access-Control-Allow-Origin": "*"
-        }
-        })
-        .then((Response) => {
-            console.log('File export: ', Response)
+        await axios.post(`http://localhost:8844/api/utils/export/ages`, dataToExport,{ responseType: 'blob'})
+        .then((response) => {
+            console.log('File export: ', response)
+            // create file link in browser's memory
+            const href = URL.createObjectURL(response.data);
+
+            // create "a" HTML element with href to file & click
+            const link = document.createElement('a');
+            link.href = href;
+            link.setAttribute('download', 'file.xlsx'); //or any other extension
+            document.body.appendChild(link);
+            link.click();
+
+            // clean up "a" element & remove ObjectURL
+            document.body.removeChild(link);
+            URL.revokeObjectURL(href);
         })
         .catch((e) => {
             console.log('Error export: ',e)
@@ -173,15 +180,20 @@ methods: {
             data : this.ages
         };
         
+        await axios.post(`http://localhost:8844/api/utils/export/ages/pdf`, dataToExport,{ responseType: 'blob'})
+        .then((response) => {
+            const href = URL.createObjectURL(response.data);
 
-        await axios.get(`http://localhost:8844/api/utils/export/ages/pdf`, dataToExport,{
-        headers: {
-            "Content-Type": "multipart/form-data;boundary=boundary",
-            "Access-Control-Allow-Origin": "*"
-        }
-        })
-        .then((Response) => {
-            console.log('File export: ', Response)
+            // create "a" HTML element with href to file & click
+            const link = document.createElement('a');
+            link.href = href;
+            link.setAttribute('download', 'file.pdf'); //or any other extension
+            document.body.appendChild(link);
+            link.click();
+
+            // clean up "a" element & remove ObjectURL
+            document.body.removeChild(link);
+            URL.revokeObjectURL(href);
         })
         .catch((e) => {
             console.log('Error export: ',e)

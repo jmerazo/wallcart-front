@@ -10,3 +10,4 @@ Export table: https://github.com/PanJiaChen/vue-element-admin/blob/master/src/ve
 PDFKit: https://vuejscomponent.com/package?name=pdfkit
 Toast: https://bestofvue.com/repo/MeForma-vue-toaster-vuejs-notification
 
+CSS Grid y FlexBox
