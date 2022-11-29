@@ -142,7 +142,7 @@
                   position: 'top-right',
                   duration: 8000
                 });}else{
-                  this.$toast.danger(`File upload fail`, {
+                  this.$toast.warning(`File upload fail`, {
                       position: 'top-right',
                       duration: 8000
                   })

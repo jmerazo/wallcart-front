@@ -163,7 +163,7 @@ methods: {
             // create "a" HTML element with href to file & click
             const link = document.createElement('a');
             link.href = href;
-            link.setAttribute('download', 'file.xlsx'); //or any other extension
+            link.setAttribute('download', `Report_ages_HJMH_${this.dateIn}.xlsx`); //or any other extension
             document.body.appendChild(link);
             link.click();
 
