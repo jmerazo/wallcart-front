@@ -21,6 +21,8 @@ import ContracsUpdate from '@/views/Contracs/Update.vue'
 import ContracsAll from '@/views/Contracs/ListAll.vue'
 import ReportAgesNew from '@/views/Payments/AgesNew.vue'
 import ValidityReportNew from '@/views/Payments/ValidityNew.vue'
+import FlexboxTest from '@/views/Contracs/FlexboxTest.vue'
+import CSSGridTest from '@/views/Contracs/CSSGridTest.vue'
 
 const routes = [
     {
@@ -203,6 +205,22 @@ const routes = [
         name: 'ContracsDelete',
         meta: {
             auth: true
+        }
+    },
+    {
+        path: '/flexbox',
+        name: 'FlexboxTest',
+        component: FlexboxTest,
+        meta: {
+            auth: false
+        }
+    },
+    {
+        path: '/cssgrid',
+        name: 'CSSGridTest',
+        component: CSSGridTest,
+        meta: {
+            auth: false
         }
     }
 ]

@@ -115,115 +115,12 @@
 </template>
 
 <script>
-import axios from 'axios'
 export default {
     components: {
     },
-    name: "AddContrac",
-    data() {
-        return {
-            num_cto : null,
-            nit : null,
-            modalidad_cto : null,
-            nivel_cto : null,
-            fec_ini_cto : null,
-            fec_fin_cto : null,
-            valor_cto : null,
-            cod_serv_cto : null,
-            contrac_delete : "",
-            contracsSearch : [],
-            params : "",
-            filter : ""
-        };
-    },
-    mounted() {
-    },
-    computed: {       
-    },
-    methods: {
-        async addContracs(){
-            console.log(this.year)
-            const contracsData = JSON.stringify({
-                num_cto : this.num_cto,
-                nit : this.nit,
-                modalidad_cto : this.modalidad_cto,
-                nivel_cto : this.nivel_cto,
-                fec_ini_cto : this.fec_ini_cto,
-                fec_fin_cto : this.fec_fin_cto,
-                valor_cto : this.valor_cto,
-                cod_serv_cto : this.cod_serv_cto
-            })
+    name: "CSSGridTest"
+}
 
-            await axios.post(`http://localhost:8844/api/contracs/add`, contracsData, {
-                headers: {
-                "Content-Type": "application/json",
-                "Access-Control-Allow-Origin": "*"
-                }
-            })
-            .then((Response) => {
-                console.log('Response data: ', Response)
-                if(Response.data.message == `Contract ${this.num_cto} already exits`){
-                    this.$toast.info(`Contract ${this.num_cto} already exits`, {
-                    position: 'top-right',
-                    duration: 8000
-                    })
-                }
-                console.log(Response)
-                this.$toast.success(`Contrac ${Response.data.num_cto} add Successfull`, {
-                position: 'top-right',
-                duration: 8000
-                })
-                this.num_cto = "";
-                this.nit = "";
-                this.modalidad_cto = "";
-                this.nivel_cto = "";
-                this.fec_ini_cto = "";
-                this.fec_fin_cto = "";
-                this.valor_cto = "";
-                this.cod_serv_cto = "";
-                this.$router.push({name: 'Contracs'});             
-            })
-            .catch((e) => {
-                console.log(e)
-                this.$toast.warning(`Error, not add`, {
-                  position: 'top-right',
-                  duration: 8000
-                })
-            })
-        },
-        async searchContracs(){
-            await axios.get(`http://localhost:8844/api/contracs/filter/${this.filter}/${this.params}`, {
-                headers: {
-                "Content-Type": "application/json",
-                "Access-Control-Allow-Origin": "*"
-                }
-            })
-            .then((Response) => {
-                this.contracsSearch = Response.data;
-            })
-            .catch((e) => {
-                console.log(e)
-            })
-        },
-        async businessDelete(){
-            console.log('Business delete id: ', this.busineDelete)
-            this.busineDelete = this.$route.params.id;
-            await axios.delete(`http://localhost:8888/api/business/delete/${this.busineDelete}`,{
-            headers: {
-                "Content-Type": "application/json",
-                "Access-Control-Allow-Origin": "*"
-            }
-            })
-            .then((Response) => {
-                console.log(`Business ${this.busineDelete}`, Response)
-                this.$router.push({name: 'Business'});
-            })
-            .catch((e) => {
-                console.log(`Error deleting ${this.busineDelete}`,e)
-            })
-        }
-    }
-};
 </script>
 
 <style>
@@ -232,59 +129,5 @@ export default {
     grid-template-columns: 350px 1500px;
     grid-template-rows: auto;
     margin: 30px;
-}
-
-#btn-contracs-list{
-    color: white;
-    background-color: #ab0d2f;
-    margin-top: 15px;
-    margin-bottom: 15px;
-}
-
-#form-contracs-gral{
-    display: flex;
-    width: 99%;
-}
-
-#form-contracs-ppal{
-    justify-content: center;
-    justify-items: center;
-    align-items: center;
-    text-align: center;
-}
-
-#form-contracs{
-    width: 300px;
-}
-
-#search-contracs{
-    text-align: left;
-}
-
-#form-contracs-all{
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    margin: 20px;
-    top: 0;
-}
-
-#form-search-contracs{
-    margin-bottom: 20px;
-    justify-content: left;
-    top: 0px;
-}
-
-#form-contracs-inputs{
-    text-align: left;
-}
-
-#btn-contracs-create{
-    background-color: #ab0d2f;
-    color: white;
-}
-
-#btn-content{
-    margin-top: 30px;
 }
 </style>

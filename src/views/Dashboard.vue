@@ -2,7 +2,7 @@
   <section id="section-dashboard">
     <Bar
       :chart-options="chartOptions"
-      :chart-data="data"
+      :chart-data="chartData"
       :chart-id="chartId"
       :dataset-id-key="datasetIdKey"
       :plugins="plugins"
@@ -78,10 +78,11 @@ export default {
         })
         .then((response) => {
             console.log('Dash data: ',response.data)
-            this.chartData.labels = response.data.nombre;
-            console.log('Nombre eps: ', response.data.nombre)
-            this.chartData.datasets = response.data.saldo;
-            console.log('Saldo: ', response.data.saldo)
+
+            for (let i = 0; i<=5; i++) {
+              this.chartData.labels[i] = response.data[i].nombre
+              this.chartData.datasets[i] = response.data[i].saldo;              
+            }
         });
     }
    
