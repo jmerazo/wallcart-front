@@ -4,7 +4,7 @@
           <div class="container-fluid">
             <div class="nav-start">
               <a class="navbar-brand" href="/" id="txt-nav-log">
-                Sahara
+                Alpha
               </a>
             </div>
   
@@ -148,6 +148,7 @@ import axios from 'axios'
     left: 0;
     right: 0;
     width: 100%;
+    color: #54426b;
     background-color: #eeeeee;
     border-bottom: 1px solid #acacac;
   }
@@ -160,8 +161,9 @@ import axios from 'axios'
   
   .navbar {
     width: 100%;
-    margin-left: 30px;
-    margin-right: 30px;
+    padding-left: 30px;
+    padding-right: 30px;
+    color: #54426b;
     background-color: #eeeeee;
   }
   
