@@ -1,78 +1,78 @@
 <template>
-    <div>
-        <a id="btn-business-list" href="/business/all" class="btn" type="button" title="List Business"><font-awesome-icon id="fai-business-list" :icon="['fas', 'house-medical']"/></a>
-    </div>
-    <div class="row" id="form-business-gral">
-        <form class="col-3" id="form-business-ppal">
-            <h2 id="register-title" class="font-bold text-2xl">Business</h2>
-            <label id="register-subtitle" class="font-semibold text-lg"> Add new </label><br>
+    <div class="grid">
+            <div id="form-business-ppal">
+                <div>
+                    <a id="btn-business-list" href="/business/all" class="btn" type="button" title="List Business"><font-awesome-icon id="fai-business-list" :icon="['fas', 'house-medical']"/></a>
+                </div>
+                <h2 id="register-title" class="font-bold text-2xl">Business</h2>
+                <label id="register-subtitle" class="font-semibold text-lg"> Add new </label><br>
 
-            <div id="form-business-all">
-                <div id="form-business-inputs">
-                    <font-awesome-icon id="fai-search" :icon="['fas', 'id-card']" />
-                    <label class="form-label">Nit</label>
-                    <input type="text" v-model="nit" class="form-control" id="form-business">
-                </div>
-                
-                <div id="form-business-inputs">
-                    <font-awesome-icon id="fai-search" :icon="['fas', 'signature']" />
-                    <label class="form-label">Nombre</label>
-                    <input type="text" v-model="nombre" class="form-control" id="form-business">
-                </div>
-                
-                <div id="form-business-inputs">
-                    <font-awesome-icon id="fai-search" :icon="['fas', 'layer-group']"/>
-                    <label class="form-label">Regimen</label>
-                    <select v-model="regimen" @change="listCities()" class="form-control" id="form-business">
-                        <option value="" disabled selected>Select an regime...</option>
-                        <!--option v-show="departamento" :value="departamento">{{this.departmentSearch}}</option-->
-                        <option v-for="reg in regimens" :value="reg.cod_reg" :key="reg.cod_reg">{{reg.cod_reg + " - " + reg.nom_reg}}</option>
-                    </select>
-                </div>
+                <div id="form-business-all">
+                    <div id="form-business-inputs">
+                        <font-awesome-icon id="fai-search" :icon="['fas', 'id-card']" />
+                        <label class="form-label">Nit</label>
+                        <input type="text" v-model="nit" class="form-control" id="form-business">
+                    </div>
+                    
+                    <div id="form-business-inputs">
+                        <font-awesome-icon id="fai-search" :icon="['fas', 'signature']" />
+                        <label class="form-label">Nombre</label>
+                        <input type="text" v-model="nombre" class="form-control" id="form-business">
+                    </div>
+                    
+                    <div id="form-business-inputs">
+                        <font-awesome-icon id="fai-search" :icon="['fas', 'layer-group']"/>
+                        <label class="form-label">Regimen</label>
+                        <select v-model="regimen" @change="listCities()" class="form-control" id="form-business">
+                            <option value="" disabled selected>Select an regime...</option>
+                            <!--option v-show="departamento" :value="departamento">{{this.departmentSearch}}</option-->
+                            <option v-for="reg in regimens" :value="reg.cod_reg" :key="reg.cod_reg">{{reg.cod_reg + " - " + reg.nom_reg}}</option>
+                        </select>
+                    </div>
 
-                <div id="form-business-inputs">
-                    <font-awesome-icon id="fai-search" :icon="['fas', 'mobile']" />
-                    <label class="form-label">Celular</label>
-                    <input type="number" v-model="celular" class="form-control" id="form-business">
-                </div>                 
+                    <div id="form-business-inputs">
+                        <font-awesome-icon id="fai-search" :icon="['fas', 'mobile']" />
+                        <label class="form-label">Celular</label>
+                        <input type="number" v-model="celular" class="form-control" id="form-business">
+                    </div>                 
 
-                <div id="form-business-inputs">
-                    <font-awesome-icon id="fai-search" :icon="['fas', 'envelope']" />
-                    <label class="form-label">Correo</label>
-                    <input type="email" v-model="correo" class="form-control" id="form-business">
-                </div>
-                
-                <div id="form-business-inputs">
-                    <font-awesome-icon id="fai-search" :icon="['fas', 'map-location']" />
-                    <label class="form-label">Dirección</label>
-                    <input type="text" v-model="direccion" class="form-control" id="form-business">
-                </div>
+                    <div id="form-business-inputs">
+                        <font-awesome-icon id="fai-search" :icon="['fas', 'envelope']" />
+                        <label class="form-label">Correo</label>
+                        <input type="email" v-model="correo" class="form-control" id="form-business">
+                    </div>
+                    
+                    <div id="form-business-inputs">
+                        <font-awesome-icon id="fai-search" :icon="['fas', 'map-location']" />
+                        <label class="form-label">Dirección</label>
+                        <input type="text" v-model="direccion" class="form-control" id="form-business">
+                    </div>
 
-                <div id="form-business-inputs">
-                    <font-awesome-icon id="fai-log" :icon="['fas', 'location-dot']"/><label class="form-label">Departments</label>
-                    <select v-model="departamento" @change="listCities()" class="form-control" id="form-business">
-                        <option value="" disabled selected>Select an department...</option>
-                        <!--option v-show="departamento" :value="departamento">{{this.departmentSearch}}</option-->
-                        <option v-for="department in departments" :value="department.code" :key="department.code">{{department.name}}</option>
-                    </select>
-                </div>
+                    <div id="form-business-inputs">
+                        <font-awesome-icon id="fai-log" :icon="['fas', 'location-dot']"/><label class="form-label">Departments</label>
+                        <select v-model="departamento" @change="listCities()" class="form-control" id="form-business">
+                            <option value="" disabled selected>Select an department...</option>
+                            <!--option v-show="departamento" :value="departamento">{{this.departmentSearch}}</option-->
+                            <option v-for="department in departments" :value="department.code" :key="department.code">{{department.name}}</option>
+                        </select>
+                    </div>
 
-                <div id="form-business-inputs">
-                    <font-awesome-icon id="fai-log" :icon="['fas', 'location-pin']"/><label class="form-label">Cities</label>
-                    <select v-model="ciudad" class="form-control" id="form-business">
-                    <option value="" disabled selected>Select an city...</option>
-                    <!--option v-show="ciudad" :value="ciudad">{{this.citySearch}}</option-->
-                    <option v-for="city in cities" :value="city.code" :key="city.code">{{city.name}}</option>
-                    </select>
-                </div>
-                
-                <div id="btn-content">
-                    <a type="submit" class="btn" id="btn-business-create" @click.prevent="addBusiness()">Create</a>
+                    <div id="form-business-inputs">
+                        <font-awesome-icon id="fai-log" :icon="['fas', 'location-pin']"/><label class="form-label">Cities</label>
+                        <select v-model="ciudad" class="form-control" id="form-business">
+                        <option value="" disabled selected>Select an city...</option>
+                        <!--option v-show="ciudad" :value="ciudad">{{this.citySearch}}</option-->
+                        <option v-for="city in cities" :value="city.code" :key="city.code">{{city.name}}</option>
+                        </select>
+                    </div>
+                    
+                    <div id="btn-content">
+                        <a type="submit" class="btn" id="btn-business-create" @click.prevent="addBusiness()">Create</a>
+                    </div>
                 </div>
             </div>
-        </form>
 
-        <div class="col-8" id="form-business-all">
+        <div id="form-business-all">
             <div id="form-search-business" class="row">
                 <div class="col-2" id="search-business">
                     <font-awesome-icon id="fai-search" :icon="['fas', 'filter']"/><label class="form-label">Filter by: </label>
@@ -292,6 +292,13 @@ export default {
 </script>
 
 <style>
+.grid{
+    display: grid;
+    grid-template-columns: 350px 1500px;
+    grid-template-rows: auto;
+    margin: 30px;
+}
+
 #btn-business-list{
     color: white;
     background-color: #ab0d2f;

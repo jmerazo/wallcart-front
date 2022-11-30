@@ -1,6 +1,9 @@
 <template>
     <div class="grid">
-        <div>
+        <div id="form-contracs-register">
+            <div>
+                <a id="btn-contracs-list" href="/contracs/all" class="btn" type="button" title="List Contracs"><font-awesome-icon id="fai-contracs-list" :icon="['fas', 'file']"/></a>
+            </div>
             <h2 id="register-title" class="font-bold text-2xl">Contracs</h2>
             <label id="register-subtitle" class="font-semibold text-lg"> Add new contrac</label><br>
 
@@ -54,7 +57,7 @@
                 </div>
                 
                 <div id="btn-content">
-                    <a type="submit" class="btn" id="btn-business-create" @click="addContracs">Create</a>
+                    <a type="submit" class="btn" id="btn-contracs-create" @click="addContracs">Create</a>
                 </div>
             </div>
         </div>
@@ -77,8 +80,8 @@
                 </div>
             </div>                
 
-            <table class="table table table-striped table-hover">
-                <thead class="table-dark">
+            <table class="table table table-striped table-hover" id="table-search">
+                <thead id="table-title">
                     <tr id="tr-title">
                         <th>Contrato</th>
                         <th>Nit</th>
@@ -229,14 +232,29 @@ export default {
 <style>
 .grid {
     display: grid;
-    grid-template-columns: 350px 1500px;
+    grid-template-columns: 350px 1490px;
     grid-template-rows: auto;
-    margin: 30px;
+    margin: 20px;
+}
+
+#table-search{
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+#table-title{
+    background-color: #5f4c69;
+    color: white;
+}
+
+.table-dark{
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
 }
 
 #btn-contracs-list{
     color: white;
-    background-color: #ab0d2f;
+    background-color: #5f4c69;
     margin-top: 15px;
     margin-bottom: 15px;
 }
@@ -280,7 +298,7 @@ export default {
 }
 
 #btn-contracs-create{
-    background-color: #ab0d2f;
+    background-color: #5f4c69;
     color: white;
 }
 

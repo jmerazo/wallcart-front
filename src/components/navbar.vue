@@ -149,7 +149,7 @@ import axios from 'axios'
     right: 0;
     width: 100%;
     color: #54426b;
-    background-color: #eeeeee;
+    background-color: #54426b;
     border-bottom: 1px solid #acacac;
   }
 
