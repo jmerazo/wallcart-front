@@ -1,10 +1,13 @@
 <template>
     <div class="header">
-      <nav id="menu" class="navbar navbar-expand-lg bg-light">
+      <nav id="menu" class="navbar navbar-expand-lg">
           <div class="container-fluid">
+            <img id="log-alpha" src="@/assets/resources/alphav2.png"
+              width="50"
+              height="50"/>
             <div class="nav-start">
               <a class="navbar-brand" href="/" id="txt-nav-log">
-                Alpha
+                Alpha    
               </a>
             </div>
   
@@ -48,6 +51,7 @@
                   <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <li><a class="dropdown-item" href="/portfolio/upload/beads"><font-awesome-icon id="fai-drop" :icon="['fas', 'file-invoice']"/>Beads</a></li>
                     <li><a class="dropdown-item" href="/portfolio/upload/payments"><font-awesome-icon id="fai-drop" :icon="['fas', 'cash-register']"/>Payments</a></li>
+                    <li><a class="dropdown-item" href="/portfolio/upload/payments/all"><font-awesome-icon id="fai-drop" :icon="['fas', 'cash-register']"/>Payments - NR</a></li>
                   </ul>
                 </li>
 
@@ -164,7 +168,7 @@ import axios from 'axios'
     padding-left: 30px;
     padding-right: 30px;
     color: #54426b;
-    background-color: #eeeeee;
+    background-color: #bfb8c9;
   }
   
   #fai-log{
@@ -173,6 +177,10 @@ import axios from 'axios'
   
   #t-log{
     margin-left: 10px;
+  }
+
+  #log-alpha{
+    margin-right: 10px;
   }
 
   #fai-drop{

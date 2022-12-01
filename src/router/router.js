@@ -23,6 +23,7 @@ import ReportAgesNew from '@/views/Payments/AgesNew.vue'
 import ValidityReportNew from '@/views/Payments/ValidityNew.vue'
 import FlexboxTest from '@/views/Contracs/FlexboxTest.vue'
 import CSSGridTest from '@/views/Contracs/CSSGridTest.vue'
+import UploadPaymentsNR from '@/views/Portfolio/UploadPaymentsAll.vue'
 
 const routes = [
     {
@@ -101,6 +102,14 @@ const routes = [
         path: '/portfolio/upload/payments',
         name: 'UploadPayments',
         component: UploadPayments,
+        meta: {
+            auth: true
+        }
+    },
+    {         
+        path: '/portfolio/upload/payments/all',
+        name: 'UploadPaymentsNR',
+        component: UploadPaymentsNR,
         meta: {
             auth: true
         }

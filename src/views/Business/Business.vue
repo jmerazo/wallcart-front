@@ -2,7 +2,7 @@
     <div class="grid">
             <div id="form-business-ppal">
                 <div>
-                    <a id="btn-business-list" href="/business/all" class="btn" type="button" title="List Business"><font-awesome-icon id="fai-business-list" :icon="['fas', 'house-medical']"/></a>
+                    <a id="btn-business-all" href="/business/all" class="btn" type="button" title="List Business"><font-awesome-icon id="fai-business-list" :icon="['fas', 'house-medical']"/></a>
                 </div>
                 <h2 id="register-title" class="font-bold text-2xl">Business</h2>
                 <label id="register-subtitle" class="font-semibold text-lg"> Add new </label><br>
@@ -67,7 +67,7 @@
                     </div>
                     
                     <div id="btn-content">
-                        <a type="submit" class="btn" id="btn-business-create" @click.prevent="addBusiness()">Create</a>
+                        <a type="submit" class="btn" id="btn-business-create-b" @click.prevent="addBusiness()">Create</a>
                     </div>
                 </div>
             </div>
@@ -299,9 +299,9 @@ export default {
     margin: 30px;
 }
 
-#btn-business-list{
+#btn-business-all{
     color: white;
-    background-color: #ab0d2f;
+    background-color: #14082E;
     margin-top: 15px;
     margin-bottom: 15px;
 }
@@ -346,8 +346,8 @@ export default {
     text-align: left;
 }
 
-#btn-business-create{
-    background-color: #ab0d2f;
+#btn-business-create-b{
+    background-color: #14082E;
     color: white;
 }
 

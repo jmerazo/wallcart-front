@@ -2,7 +2,7 @@
   <section id="cont-login">     
     <div class="col-12" id="form-user-login">
       <form @submit.prevent="userLogin" class="row">
-        <img src="@/assets/resources/log_xara.png" alt="" id="log-login"> 
+        <img src="@/assets/resources/alphav2.png" alt="" id="log-login"> 
         <h2 id="login-title" class="font-bold text-2xl">Log in</h2>
         <label id="login-subtitle">Enter your credentials to login</label><br>
 
@@ -144,7 +144,7 @@ section{
 }
 
 #cont-login{
-  background-color: #b8abcc;
+  background-color: #eeeaf5;
   justify-content: center;
   display: flex;
   align-items: center;
