@@ -2,7 +2,7 @@
   <section id="cont-login">     
     <div class="col-12" id="form-user-login">
       <form @submit.prevent="userLogin" class="row">
-        <img src="@/assets/resources/alphav2.png" alt="" id="log-login"> 
+        <img src="@/assets/resources/alphav3.png" alt="" id="log-login"> 
         <h2 id="login-title" class="font-bold text-2xl">Log in</h2>
         <label id="login-subtitle">Enter your credentials to login</label><br>
 
@@ -12,7 +12,7 @@
               <font-awesome-icon id="fai-login" :icon="['fas', 'user']"/>
               <label class="form-label font-semibold">Email</label>
             </div>
-            <input id="i-login" v-model="email" type="text" class="form-control" placeholder="example@wallcart.ex" required>
+            <input id="i-login" v-model="email" type="text" class="form-control" placeholder="example@alpha.com" required>
           </div>
 
           <div>
@@ -20,7 +20,7 @@
               <font-awesome-icon id="fai-login" :icon="['fas', 'unlock']"/>
               <label class="form-label font-semibold">Password</label>
             </div>
-            <input id="i-login-pass" v-model="password" type="password" class="form-control" placeholder="wallcart123*" required>
+            <input id="i-login-pass" v-model="password" type="password" class="form-control" placeholder="alpha123*" required>
           </div>
 
           <div class="col-4">

@@ -11,3 +11,8 @@ PDFKit: https://vuejscomponent.com/package?name=pdfkit
 Toast: https://bestofvue.com/repo/MeForma-vue-toaster-vuejs-notification
 
 CSS Grid y FlexBox
+
+Despliegue: https://www.digitalocean.com/community/tutorials/como-configurar-una-aplicacion-de-node-js-para-produccion-en-ubuntu-18-04-es
+Loading: https://www.vuescript.com/20-loading-spinners-vue-js/
+Duplicate: https://programandoointentandolo.com/2017/06/buscar-registros-repetidos-sql.html
+

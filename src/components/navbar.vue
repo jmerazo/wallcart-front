@@ -2,7 +2,7 @@
     <div class="header">
       <nav id="menu" class="navbar navbar-expand-lg">
           <div class="container-fluid">
-            <img id="log-alpha" src="@/assets/resources/alphav2.png"
+            <img id="log-alpha" src="@/assets/resources/alphav3.png"
               width="50"
               height="50"/>
             <div class="nav-start">
