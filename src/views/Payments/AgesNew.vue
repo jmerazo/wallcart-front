@@ -10,12 +10,9 @@
                 <div class="col-2">
                     <a id="btn-search-report" type="submit" class="btn" @click="agesReport">Generate</a>
                 </div>
-                <div class="col-2">
-                    <a id="btn-search-report" type="submit" class="btn" @click="downloadAgesXLSX">Export</a>
-                </div>
             </div>
            
-            <a id="btn-search-export" title="Export report" type="submit" class="btn" @click="expTable"><font-awesome-icon id="fai-export" :icon="['fas', 'file-export']"/></a> 
+            <a id="btn-search-export" title="Export report" type="submit" class="btn" @click="downloadAgesXLSX"><font-awesome-icon id="fai-export" :icon="['fas', 'file-export']"/></a> 
             <div class="row" id="form-label-input">
                 <img src="@/assets/resources/logoese.png" alt="Log ESE HJMH" id="img-report-ages">
                 <h2 id="register-title" class="font-bold text-2xl">E.S.E Hospital José María Hernández</h2>
@@ -123,15 +120,27 @@ computed: {
 },
 methods: {
     async downloadAgesXLSX(){
-        let dataToExport = this.ages;
-        await axios.post(`http://localhost:8844/api/utils/export/ages`, dataToExport,{
-        headers: {
-            "Content-Type": "application/json",
-            "Access-Control-Allow-Origin": "*"
-        }
-        })
-        .then((Response) => {
-            console.log('File export: ', Response)
+        let dataToExport = {
+            data : this.ages
+        };
+        console.log('Data export xlsx: ', dataToExport)
+        
+        await axios.post(`http://localhost:8844/api/utils/export/ages`, dataToExport,{ responseType: 'blob'})
+        .then((response) => {
+            console.log('File export: ', response)
+            // create file link in browser's memory
+            const href = URL.createObjectURL(response.data);
+
+            // create "a" HTML element with href to file & click
+            const link = document.createElement('a');
+            link.href = href;
+            link.setAttribute('download', `Report_ages_HJMH_${this.dateIn}.xlsx`); //or any other extension
+            document.body.appendChild(link);
+            link.click();
+
+            // clean up "a" element & remove ObjectURL
+            document.body.removeChild(link);
+            URL.revokeObjectURL(href);
         })
         .catch((e) => {
             console.log('Error export: ',e)
