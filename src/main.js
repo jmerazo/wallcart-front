@@ -77,7 +77,8 @@ import {
     faBarcode,
     faTurnUp,
     faMoneyBill,
-    faFilePdf
+    faFilePdf,
+    faFileContract
 } from '@fortawesome/free-solid-svg-icons'
 import { 
     faFacebook, 
@@ -157,7 +158,8 @@ library.add(
     faBarcode,
     faTurnUp,
     faMoneyBill,
-    faFilePdf
+    faFilePdf,
+    faFileContract
 )
 
 const settings = {

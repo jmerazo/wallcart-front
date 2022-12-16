@@ -34,6 +34,7 @@
                   <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <li><a class="dropdown-item" href="/business"><font-awesome-icon id="fai-drop" :icon="['fas', 'house-medical']"/>Business</a></li>
                     <li><a class="dropdown-item" href="/contracs"><font-awesome-icon id="fai-drop" :icon="['fas', 'file']"/>Contracts</a></li>
+                    <li><a class="dropdown-item" href="/generate/state/portfolio"><font-awesome-icon id="fai-drop" :icon="['fas', 'file-contract']"/>Generate Request</a></li>
                   </ul>
                 </li>
 

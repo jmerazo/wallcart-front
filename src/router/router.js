@@ -24,6 +24,7 @@ import ValidityReportNew from '@/views/Payments/ValidityNew.vue'
 import FlexboxTest from '@/views/Contracs/FlexboxTest.vue'
 import CSSGridTest from '@/views/Contracs/CSSGridTest.vue'
 import UploadPaymentsNR from '@/views/Portfolio/UploadPaymentsAll.vue'
+import GenerateRequest from '@/views/Utils/GenerateRequest.vue'
 
 const routes = [
     {
@@ -230,6 +231,14 @@ const routes = [
         component: CSSGridTest,
         meta: {
             auth: false
+        }
+    },
+    {
+        path: '/generate/state/portfolio',
+        name: 'GenerateRequest',
+        component: GenerateRequest,
+        meta: {
+            auth: true
         }
     }
 ]

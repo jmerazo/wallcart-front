@@ -223,7 +223,7 @@ methods: {
 #img-report-ages{
     position: absolute;
     width: 100px;
-    height: 55px;
+    height: 100px;
     top: 180px;
 }
 
