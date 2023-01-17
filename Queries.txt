@@ -16,3 +16,5 @@ Despliegue: https://www.digitalocean.com/community/tutorials/como-configurar-una
 Loading: https://www.vuescript.com/20-loading-spinners-vue-js/
 Duplicate: https://programandoointentandolo.com/2017/06/buscar-registros-repetidos-sql.html
 
+Delete row dropdown: https://barcelonageeks.com/como-eliminar-la-flecha-en-el-menu-desplegable-en-bootstrap/#:~:text=En%20este%20caso%2C%20el%20contenido,el%20contenido%20sea%20'ninguno'%20.&text=Se%20puede%20usar%20esta%20funci%C3%B3n,las%20barras%20de%20navegaci%C3%B3n%20superiores.
+

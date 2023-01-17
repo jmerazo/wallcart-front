@@ -103,7 +103,7 @@
       </div>
   </template>
 
-  <script>
+<script>
 import axios from 'axios'
   export default {
     name: "navbar-app",
@@ -144,96 +144,101 @@ import axios from 'axios'
       }    
     }
   }
-  </script>
-  <style>
-  .header {
-    display: flex;
-    position: sticky;
-    top: 0;
-    left: 0;
-    right: 0;
-    width: 100%;
-    color: #54426b;
-    background-color: #54426b;
-    border-bottom: 1px solid #acacac;
-  }
+</script>
 
-  #menu{
-    width: 100%;
-    left: 0;
-    right: 0;
-  }
-  
-  .navbar {
-    width: 100%;
-    padding-left: 30px;
-    padding-right: 30px;
-    color: #54426b;
-    background-color: #bfb8c9;
-  }
-  
-  #fai-log{
-    margin-right: 5px;
-  }
-  
-  #t-log{
-    margin-left: 10px;
-  }
+<style scoped>
+.header {
+  display: flex;
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  color: #54426b;
+  background-color: #54426b;
+  border-bottom: 1px solid #acacac;
+}
 
-  #log-alpha{
-    margin-right: 10px;
-  }
+#menu{
+  width: 100%;
+  left: 0;
+  right: 0;
+}
 
-  #fai-drop{
-    width: 15px;
-    height: 15px;
-    margin-right: 5px;
-  }
+.dropdown-toggle::after {
+  content: none;
+}
 
-  #li-fixed-queries{
-    margin-top: 10px;
-    margin-right: 3px;
-  }
+.navbar {
+  width: 100%;
+  padding-left: 30px;
+  padding-right: 30px;
+  color: #54426b;
+  background-color: #bfb8c9;
+}
 
-  #li-fixed-home{
-    margin-top: 8px;
-    margin-right: 12px;
-  }
-  
-  #btncircle{
-    width: 40px;
-    height: 40px;
-    padding: 6px 0px;
-    border-radius: 35px;
-    text-align: center;
-    font-size: 12px;
-    line-height: 1.42857;
-    border: 1px solid #54426b;
-  }
-  
-  #txt-nav-log{
-    color: #000000;
-    font-size: 1.8em;
-    font-weight: bold;
-  }
-  
-  #txt-nav {
-    color: #000000;
-    font-size: 1.1em;
-  }
+#fai-log{
+  margin-right: 5px;
+}
 
-  #navbarDropdown {
-    color: #000000;
-    font-size: 1.1em;
-  }
-  
-  .nav-start {
-    justify-content: left;
-    align-content: left;
-  }
-  
-  #nav-end {
-    align-content: right;
-    justify-content: right;
-  }
+#t-log{
+  margin-left: 10px;
+}
+
+#log-alpha{
+  margin-right: 10px;
+}
+
+#fai-drop{
+  width: 15px;
+  height: 15px;
+  margin-right: 5px;
+}
+
+#li-fixed-queries{
+  margin-top: 10px;
+  margin-right: 3px;
+}
+
+#li-fixed-home{
+  margin-top: 8px;
+  margin-right: 12px;
+}
+
+#btncircle{
+  width: 40px;
+  height: 40px;
+  padding: 6px 0px;
+  border-radius: 35px;
+  text-align: center;
+  font-size: 12px;
+  line-height: 1.42857;
+  border: 1px solid #54426b;
+}
+
+#txt-nav-log{
+  color: #000000;
+  font-size: 1.8em;
+  font-weight: bold;
+}
+
+#txt-nav {
+  color: #000000;
+  font-size: 1.1em;
+}
+
+#navbarDropdown {
+  color: #000000;
+  font-size: 1.1em;
+}
+
+.nav-start {
+  justify-content: left;
+  align-content: left;
+}
+
+#nav-end {
+  align-content: right;
+  justify-content: right;
+}
 </style>
