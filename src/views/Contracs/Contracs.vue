@@ -1,5 +1,5 @@
 <template>
-    <div class="grid">
+    <div class="grid-contracs">
         <div id="form-contracs-register">
             <div>
                 <a id="btn-contracs-list" href="/contracs/all" class="btn" type="button" title="List Contracs"><font-awesome-icon id="fai-contracs-list" :icon="['fas', 'file']"/></a>
@@ -62,7 +62,7 @@
             </div>
         </div>
 
-        <div>
+        <div id="form-contracs-search">
             <div id="form-search-contracs" class="row">
                 <div class="col-2" id="search-contracs">
                     <font-awesome-icon id="fai-search" :icon="['fas', 'filter']"/><label class="form-label">Filter by: </label>
@@ -230,26 +230,30 @@ export default {
 </script>
 
 <style>
-.grid {
+.grid-contracs {
     display: grid;
-    grid-template-columns: 350px 1490px;
-    grid-template-rows: auto;
-    margin: 20px;
+    grid-template-columns: 1fr 2fr;
+    grid-gap: 20px;
 }
 
-#table-search{
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
+#form-contracs-register{
+    margin-top: 5em;
+    margin-left: 20px;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    width: 0.2fr;
+}
+
+#form-contracs-search{
+    margin-top: 8em;
+    margin-right: 20px;
+    grid-column-start: 2;
+    grid-column-end: 3;
 }
 
 #table-title{
     background-color: #5f4c69;
     color: white;
-}
-
-.table-dark{
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
 }
 
 #btn-contracs-list{
@@ -259,32 +263,8 @@ export default {
     margin-bottom: 15px;
 }
 
-#form-contracs-gral{
-    display: flex;
-    width: 99%;
-}
-
-#form-contracs-ppal{
-    justify-content: center;
-    justify-items: center;
-    align-items: center;
-    text-align: center;
-}
-
-#form-contracs{
-    width: 300px;
-}
-
 #search-contracs{
     text-align: left;
-}
-
-#form-contracs-all{
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    margin: 20px;
-    top: 0;
 }
 
 #form-search-contracs{
@@ -302,7 +282,19 @@ export default {
     color: white;
 }
 
-#btn-content{
-    margin-top: 30px;
+@media (max-width: 768px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    #form-contracs-register{
+        grid-column-start: 1;
+        grid-column-end: 2;
+    }
+
+    #form-contracs-search{
+        grid-column-start: 1;
+        grid-column-end: 2;
+    }
 }
 </style>

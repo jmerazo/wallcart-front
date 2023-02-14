@@ -1,13 +1,13 @@
 <template>
-    <section id="test2">                 
+    <div class="grid-ages">                 
         <div id="form-search-data">
             <div class="row" id="form-search-parameters">
-                <div class="col-4" id="align-text-fai">
+                <div class="col-3" id="align-text-fai">
                     <font-awesome-icon id="fai-search" :icon="['fas', 'calendar']"/><label class="form-label">Select date</label><br>
                     <input v-model="dateIn" type="date"><br>
                 </div>
 
-                <div class="col-2">
+                <div class="col-1">
                     <a id="btn-search-report" type="submit" class="btn" @click="agesReport">Generate</a>
                 </div>
             </div>
@@ -88,7 +88,7 @@
                 </ul>
             </nav>          
         </div>     
-    </section>     
+    </div>     
 </template>
 
 <script>
@@ -206,14 +206,11 @@ methods: {
 </script>
   
 <style>
-.row {
-  align-items: center;
-  justify-items: center;
-  justify-content: center;
-}
-
-#pagination-ages{
-    margin-bottom: 20px;
+.grid-ages{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 20px;
+    margin-top: 3em;
 }
 
 #tableNone{
@@ -222,9 +219,9 @@ methods: {
 
 #img-report-ages{
     position: absolute;
-    width: 100px;
-    height: 100px;
-    top: 180px;
+    width: 150px;
+    height: 50px;
+    top: 210px;
 }
 
 #btn-search-export{
@@ -239,37 +236,9 @@ methods: {
     color: #07a355;
 }
 
-#fai-search{
-    margin-right: 5px;
-}
-
-#form-label-input{
-    margin-top: 20px;
-    justify-content: left;
-}
-
-
-#align-text-fai{
-    text-align: left;
-}
-
-#form-search-data{
-    margin: 20px;
-}
-
-#form-search-parameters{
-  margin-top: 15px;
-  justify-content: left;
-}
-
 #btn-search-report{
   background-color: #ab0d2f;
   color: white;
-  margin-top: 35px;
-}
-
-#form-search-list{
-  width: 100%;
-  margin-top: 20px;
+  margin-top: 15px;
 }
 </style>

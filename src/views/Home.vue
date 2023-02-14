@@ -1,35 +1,39 @@
 <template>
-  <section id="cont-login">     
-    <div class="col-12" id="form-user-login">
-      <form @submit.prevent="userLogin" class="row">
-        <img src="@/assets/resources/alphav3.png" alt="" id="log-login"> 
-        <h2 id="login-title" class="font-bold text-2xl">Log in</h2>
-        <label id="login-subtitle">Enter your credentials to login</label><br>
+  <div class="container">  
+    <main>
+      <div id="form-user-login">
+        <form @submit.prevent="userLogin" class="row">
+          <img src="@/assets/resources/alphav3.png" id="img-login"> 
+          <h2 id="login-title" class="font-bold text-2xl">Log in</h2>
+          <label id="login-subtitle">Enter your credentials to login</label><br>
 
-        <div class="row" id="row-form">
-          <div>
-            <div id="icon-label-form">
-              <font-awesome-icon id="fai-login" :icon="['fas', 'user']"/>
-              <label class="form-label font-semibold">Email</label>
+          <div class="row" id="row-form">
+            <div>
+              <div id="icon-label-form">
+                <font-awesome-icon id="fai-login" :icon="['fas', 'user']"/>
+                <label class="form-label font-semibold">Email</label>
+              </div>
+              <input id="i-login-data" v-model="email" type="text" class="form-control" placeholder="example@alpha.com" required>
             </div>
-            <input id="i-login" v-model="email" type="text" class="form-control" placeholder="example@alpha.com" required>
-          </div>
 
-          <div>
-            <div id="icon-label-form">
-              <font-awesome-icon id="fai-login" :icon="['fas', 'unlock']"/>
-              <label class="form-label font-semibold">Password</label>
+            <div>
+              <div id="icon-label-form">
+                <font-awesome-icon id="fai-login" :icon="['fas', 'unlock']"/>
+                <label class="form-label font-semibold">Password</label>
+              </div>
+              <input id="i-login-data" v-model="password" type="password" class="form-control" placeholder="alpha123*" required>
             </div>
-            <input id="i-login-pass" v-model="password" type="password" class="form-control" placeholder="alpha123*" required>
-          </div>
 
-          <div class="col-4">
-            <button id="btn-user-login" class="btn" type="submit">Send</button>
-          </div>          
-        </div> 
-      </form>        
-    </div>
-  </section>     
+            <div class="col-4">
+              <button id="btn-user-login" class="btn" type="submit">Send</button>
+            </div>
+
+          </div> 
+        </form> 
+
+      </div>
+    </main> 
+  </div>    
 </template>
 
 <script>
@@ -121,35 +125,24 @@ export default {
 </script>
 
 <style>
-section{
-  display: flex;
-  height: 96.3%;
+.container{
+  display: grid;
+  grid-template-rows: auto 1fr;
+  min-height: 100vh;
 }
 
-.body{
-  background-color: #e010cf;
+main{
+  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: 20px;
 }
 
-.row {
-  align-items: center;
-  justify-items: center;
-  justify-content: center;
-}
-
-#log-login{
+#img-login{
   margin-bottom: 20px;
   margin-top: 20px;
   width: 190px;
   height: 170;
-}
-
-#cont-login{
-  background-color: #eeeaf5;
-  justify-content: center;
-  display: flex;
-  align-items: center;
-  height: 93.5%;
-  
 }
 
 #fai-login{
@@ -160,20 +153,8 @@ section{
   text-align: left;
 }
 
-#i-login{
+#i-login-data{
   text-align: center;
-}
-
-#i-login-pass{
-  text-align: center;
-}
-
-#row-form{
-  margin-top: 20px;
-}
-
-#form-label{
-  text-align: left;
 }
 
 #btn-user-login {
@@ -183,15 +164,5 @@ section{
   color: white;
 }
 
-#form-user-login {
-  padding-top: 10px;
-  border: 3px solid #baaeca;
-  background-color: #e5e0f1;
-  padding-bottom: 15px;
-  border-radius: 15px;
-  width: 360px;
-  height: 500px;
-  align-items: center;
-  display: flex;
-}
+
 </style>
