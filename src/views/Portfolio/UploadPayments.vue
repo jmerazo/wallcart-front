@@ -1,5 +1,5 @@
 <template>
-    <section id="upload-section">                 
+    <div class="grid-upload-payments">                 
       <div class="col-12" id="form-upload-payments">
         <form enctype="multipart/form-data" id="form-upload">
           <div class="row">
@@ -93,7 +93,7 @@
           </div>
         </form>
       </div>      
-    </section>     
+    </div>     
   </template>
   
   <script>
@@ -162,44 +162,21 @@
   </script>
   
 <style>
-#upload-section{
-  display: flex;
-  width: 99.3%;
-  height: 96.3%;
-}
-
-#form-upload{
-  margin-top: 30px;
-}
-
-#btn-upload-beads{
-  background-color: #07a355;
-  color: white;
-  margin-top: 35px;
+.grid-upload-payments{
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 20px;
+  margin-top: 5em;
 }
 
 #btn-upload-payments{
-  background-color: #ab0d2f;
+  background-color: #14082E;
   color: white;
   margin-top: 35px;
-}
-
-#form-upload-payments{
-  margin-top: 40px;
-  display: flex;
-  padding-left: 100px;
-}
-
-#upload-title{
-  margin-bottom: 30px;
 }
 
 #fai-log-excel{
   margin-right: 10px;
   color: #07a355;
-}
-
-#icon-and-text-upload{
-  text-align: left;
 }
 </style>

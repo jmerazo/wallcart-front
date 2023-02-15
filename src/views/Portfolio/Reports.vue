@@ -1,5 +1,5 @@
 <template>
-    <div class="container">
+    <div class="grid-queries">
         <main>                 
             <div id="form-search-data">
             <h2 id="register-title" class="font-bold text-2xl">Search data</h2>
@@ -58,7 +58,7 @@
                 </div> 
 
             </div>
-            <a id="btn-search-export" title="Export report" type="submit" class="btn" @click="expReport"><font-awesome-icon id="fai-export" :icon="['fas', 'file-export']"/></a>
+            <a id="btn-export-report-queries" title="Export report" type="submit" class="btn" @click="expReport"><font-awesome-icon id="fai-export-queries" :icon="['fas', 'file-export']"/></a>
             <div class="col-12" id="form-search-list">
                 <table class="table table table-striped table-hover">
                     <thead class="table-dark">
@@ -203,20 +203,19 @@ methods: {
 </script>
   
 <style>
-#btn-search-export{
-    left: 500px;
+.grid-queries{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 20px;
+    margin-top: 4em;
+}
+
+#btn-export-report-queries{
     position: relative;
-}
-
-#fai-export{
     margin-right: 5px;
-    height: 25px;
-    width: 25px;
+    height: 30px;
+    width: 30px;
     color: #07a355;
-}
-
-#fai-search{
-    margin-right: 5px;
 }
 
 #form-label-input{
@@ -224,27 +223,9 @@ methods: {
     justify-content: left;
 }
 
-#align-text-fai{
-    text-align: left;
-}
-
-#form-search-data{
-    margin: 20px;
-}
-
-#form-search-parameters{
-  margin-top: 15px;
-  justify-content: left;
-}
-
 #btn-search-report{
   background-color: #ab0d2f;
   color: white;
   margin-top: 35px;
-}
-
-#form-search-list{
-  width: 100%;
-  margin-top: 20px;
 }
 </style>

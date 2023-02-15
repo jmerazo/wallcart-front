@@ -1,5 +1,5 @@
 <template>
-    <section id="upload-section">                 
+    <div class="grid-upload">                 
       <div class="col-12" id="form-upload-payments">
         <form enctype="multipart/form-data" id="form-upload">
           <div class="row">
@@ -19,12 +19,12 @@
                 accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel">
             </div>
             <div class="col-2">
-              <a id="btn-upload" type="submit" class="btn" value="Store File" @click="uploadExFile">Upload</a>
+              <a id="btn-upload-payments" type="submit" class="btn" value="Store File" @click="uploadExFile">Upload</a>
             </div>       
           </div>
         </form>
       </div>      
-    </section>     
+    </div>     
   </template>
   
   <script>
@@ -79,17 +79,18 @@
   </script>
   
 <style>
-#upload-section{
-  display: flex;
-  width: 99.3%;
-  height: 96.3%;
+.grid-upload{
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 20px;
+  margin-top: 5em;
 }
 
 #form-upload{
   margin-top: 30px;
 }
 
-#btn-upload{
+#btn-upload-payments{
   background-color: #ab0d2f;
   color: white;
   margin-top: 35px;

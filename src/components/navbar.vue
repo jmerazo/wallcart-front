@@ -26,9 +26,13 @@
     
               <div class="collapse navbar-collapse" id="nav-end">
                 <ul class="navbar-nav">
-
-                  <li class="nav-item" id="li-fixed-home"><a href="/dashboard" id="txt-nav"><font-awesome-icon id="fai-drop" :icon="['fas', 'house']"/>Home</a></li>                
-                  <li class="nav-item" id="li-fixed-queries"><a href="/portfolio/reports"><font-awesome-icon id="fai-drop" :icon="['fas', 'magnifying-glass']"/>Queries</a></li>
+                  <li class="nav-item dropdown" id="li-fixed">
+                    <a href="/dashboard"><font-awesome-icon id="fai-drop" :icon="['fas', 'house']"/>Home</a>
+                  </li>   
+                               
+                  <li class="nav-item dropdown" id="li-fixed">
+                    <a href="/portfolio/reports"><font-awesome-icon id="fai-drop" :icon="['fas', 'magnifying-glass']"/>Queries</a>
+                  </li>
 
                   <li  class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"><font-awesome-icon id="fai-drop" :icon="['fas', 'file-excel']"/>Utils</a>
@@ -160,6 +164,10 @@ header {
   color: #54426b;
   background-color: #bfb8c9;
   border-bottom: 1px solid #acacac;
+}
+
+#li-fixed{
+  margin-top: 20px;
 }
 
 #menu{

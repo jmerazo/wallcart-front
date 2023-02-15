@@ -1,5 +1,5 @@
 <template>
-    <section id="test2">                 
+    <div class="grid-consolidated">                 
         <div id="form-search-data">
           <h2 id="register-title" class="font-bold text-2xl">Consolidated Cartera</h2>
           <label id="register-subtitle" class="font-semibold text-lg">Information</label><br>
@@ -60,7 +60,7 @@
         </div>
     </div>
         </div>     
-    </section>     
+    </div>     
   </template>
   
 <script>
@@ -118,57 +118,17 @@ methods: {
 </script>
   
 <style>
-.row {
-  align-items: center;
-  justify-items: center;
-  justify-content: center;
+.grid-consolidated{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 20px;
+    margin-top: 5em;
 }
 
-#btn-search-export{
-
-}
-
-#fai-export{
+#btn-export-consolidated{
     margin-right: 5px;
     height: 25px;
     width: 25px;
     color: #07a355;
-}
-
-#fai-search{
-    margin-right: 5px;
-}
-
-#form-label-input{
-    margin-top: 20px;
-    justify-content: left;
-}
-
-#test2{
-    display: flex;
-}
-
-#align-text-fai{
-    text-align: left;
-}
-
-#form-search-data{
-    margin: 20px;
-}
-
-#form-search-parameters{
-  margin-top: 15px;
-  justify-content: left;
-}
-
-#btn-search-report{
-  background-color: #ab0d2f;
-  color: white;
-  margin-top: 35px;
-}
-
-#form-search-list{
-  width: 100%;
-  margin-top: 20px;
 }
 </style>

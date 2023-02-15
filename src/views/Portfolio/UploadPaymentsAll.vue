@@ -1,5 +1,5 @@
 <template>            
-    <div class="grid" id="form-upload-payments-nr">
+    <div class="grid-upload-nr">
       <form enctype="multipart/form-data" id="form-upload">
         <div class="row">
           <div class="col-12">
@@ -19,7 +19,7 @@
                 accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel">
             </div>
             <div class="col-2">
-              <a id="btn-upload-payments" type="submit" class="btn" value="Store File" @click="uploadExFilePayments">Upload</a>
+              <a id="btn-upload-payments-nr" type="submit" class="btn" value="Store File" @click="uploadExFilePayments">Upload</a>
             </div>
           </div>
           
@@ -260,21 +260,15 @@ export default {
 </script>
   
 <style>
-.grid{
+.grid-upload-nr{
   display: grid;
-  grid-template-columns: 1980px;
-  grid-template-rows: auto;
-  margin: 30px;
-}
-
-#upload-section{
-  display: flex;
-  width: 99.3%;
-  height: 96.3%;
+  grid-template-columns: 1fr;
+  margin-top: 5em;
+  margin-left: 5em;
 }
 
 #form-upload{
-  margin-top: 30px;
+  width: 500px;
 }
 
 #btn-upload-beads{
@@ -283,17 +277,10 @@ export default {
   margin-top: 35px;
 }
 
-#btn-upload-payments{
+#btn-upload-payments-nr{
   background-color: #14082E;
   color: white;
   margin-top: 35px;
-}
-
-#form-upload-payments-nr{
-  justify-content: center;
-  margin-top: 40px;
-  display: flex;
-  padding-left: 100px;
 }
 
 #upload-title{
@@ -303,9 +290,5 @@ export default {
 #fai-log-excel{
   margin-right: 10px;
   color: #07a355;
-}
-
-#icon-and-text-upload{
-  text-align: left;
 }
 </style>
