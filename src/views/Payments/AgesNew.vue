@@ -12,7 +12,7 @@
                 </div>
             </div>
            
-            <a id="btn-search-export" title="Export report" type="submit" class="btn" @click="downloadAgesXLSX"><font-awesome-icon id="fai-export" :icon="['fas', 'file-export']"/></a> 
+            <a id="btn-search-export-ages" title="Export report" type="submit" class="btn" @click="downloadAgesXLSX"><font-awesome-icon id="fai-export" :icon="['fas', 'file-export']"/></a> 
             <div class="row" id="form-label-input">
                 <img src="@/assets/resources/logoese.png" alt="Log ESE HJMH" id="img-report-ages">
                 <h2 id="register-title" class="font-bold text-2xl">E.S.E Hospital José María Hernández</h2>
@@ -222,11 +222,6 @@ methods: {
     width: 150px;
     height: 50px;
     top: 210px;
-}
-
-#btn-search-export{
-    left: 500px;
-    position: relative;
 }
 
 #fai-export{
